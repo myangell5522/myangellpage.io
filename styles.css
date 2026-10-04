@@ -61,22 +61,7 @@ a:focus-visible {
   padding: 40px 0 64px;
 }
 
-.profile {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.avatar {
-  width: 88px;
-  height: 88px;
-  border-radius: 50%;
-  object-fit: cover;
-  background: var(--card);
-  box-shadow: 0 0 0 1px var(--border), 0 0 0 4px rgba(63, 185, 80, 0.18);
-}
-
-.profile__text h1 {
+.profile h1 {
   margin: 0;
   font-size: clamp(1.7rem, 3vw, 2.1rem);
   font-weight: 650;
@@ -84,13 +69,25 @@ a:focus-visible {
   color: var(--bright);
 }
 
-.handle {
-  margin: 4px 0 0;
-  font-size: 0.95rem;
+.hero {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 28px;
+  margin-top: 28px;
 }
 
-.hero {
-  margin-top: 36px;
+.avatar {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--card);
+  box-shadow: 0 0 0 1px var(--border), 0 0 0 4px rgba(63, 185, 80, 0.18);
+}
+
+.hero__main {
+  text-align: center;
 }
 
 .hero h2,
@@ -351,17 +348,36 @@ a:focus-visible {
 
 .works-scroll {
   max-height: 640px;
-  margin-top: 14px;
   overflow-y: auto;
   padding-right: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: #30363d transparent;
+}
+
+.works-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.works-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.works-scroll::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 8px;
+}
+
+.works-scroll::-webkit-scrollbar-thumb:hover {
+  background: #8b949e;
 }
 
 .works {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
 }
 
+.stage__list,
 .stage__active {
   padding: 16px;
   background: var(--panel);
@@ -369,6 +385,7 @@ a:focus-visible {
   border-radius: 12px;
 }
 
+.stage__list h2,
 .stage__active h2 {
   margin: 0 0 14px;
 }
@@ -532,13 +549,18 @@ a:focus-visible {
     padding-top: 24px;
   }
 
-  .profile {
-    align-items: flex-start;
+  .hero {
+    grid-template-columns: 1fr;
+    justify-items: center;
   }
 
   .avatar {
-    width: 72px;
-    height: 72px;
+    width: 96px;
+    height: 96px;
+  }
+
+  .works {
+    grid-template-columns: 1fr;
   }
 
   .cards {

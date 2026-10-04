@@ -93,9 +93,6 @@ async function loadProfile() {
     avatar.src = user.avatar_url || avatar.src;
     avatar.alt = user.name || user.login || "myangell";
     name.textContent = user.name || user.login || "myangell";
-    const link = document.querySelector("#profile-link");
-    if (user.html_url) link.href = user.html_url;
-    if (user.login) link.textContent = `github.com/${user.login}`;
   } catch {
     avatar.alt = "myangell";
   }
@@ -318,11 +315,13 @@ async function loadActiveRepo(name) {
   card.append(title);
 
   let repo = null;
+  let hidden = false;
   try {
     const response = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${name}`, {
       headers: { Accept: "application/vnd.github+json" },
     });
     if (response.ok) repo = await response.json();
+    else if (response.status === 404) hidden = true;
   } catch {
     repo = null;
   }
@@ -343,7 +342,9 @@ async function loadActiveRepo(name) {
   pulse.className = "pulse";
   if (!repo) {
     const note = document.createElement("p");
-    note.textContent = "Нет публичной активности";
+    note.textContent = hidden
+      ? "Скрытый репозиторий. Нет публичной активности"
+      : "Нет публичной активности";
     pulse.append(note);
   } else {
     const weeks = await loadCommitWeeks(name);
