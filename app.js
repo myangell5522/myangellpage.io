@@ -81,21 +81,37 @@ function safeHttps(url) {
   }
 }
 
-async function loadProfile() {
+function renderProfile(user) {
   const avatar = document.querySelector("#avatar");
   const name = document.querySelector("#name");
-  try {
-    const response = await fetch(`https://api.github.com/users/${GITHUB_USER}`, {
-      headers: { Accept: "application/vnd.github+json" },
-    });
-    if (!response.ok) throw new Error(String(response.status));
-    const user = await response.json();
-    avatar.src = user.avatar_url || avatar.src;
-    avatar.alt = user.name || user.login || "myangell";
-    name.textContent = user.name || user.login || "myangell";
-  } catch {
-    avatar.alt = "myangell";
-  }
+  const display = user?.name || user?.login || "myangell";
+  const src = safeHttps(user?.avatarUrl);
+  if (src) avatar.src = src;
+  avatar.alt = display;
+  name.textContent = display;
+}
+
+function renderDeltas(stats) {
+  const base = stats.today?.base;
+  const current = {
+    total: stats.total ?? 0,
+    steam: stats.steam?.downloads ?? 0,
+    modrinth: stats.modrinth?.downloads ?? 0,
+    curseforge: stats.curseforge?.downloads ?? 0,
+  };
+  document.querySelectorAll("[data-delta]").forEach((el) => {
+    const key = el.dataset.delta;
+    const diff = base && Number.isFinite(base[key]) ? current[key] - base[key] : 0;
+    if (!diff) {
+      el.hidden = true;
+      return;
+    }
+    const up = diff > 0;
+    el.className = `delta ${key === "total" ? "delta--total " : ""}${up ? "delta--up" : "delta--down"}`;
+    el.textContent = `${up ? "▲" : "▼"} ${up ? "+" : "−"}${format(Math.abs(diff))}`;
+    el.title = `За сегодня: ${up ? "+" : "−"}${format(Math.abs(diff))}`;
+    el.hidden = false;
+  });
 }
 
 async function loadStats() {
@@ -130,12 +146,16 @@ async function loadStats() {
       updated.textContent = "";
     }
 
+    renderDeltas(stats);
+    renderProfile(stats.github);
     renderWorks(stats.projects || stats.steamItems || []);
     renderDiscord(stats.discord);
+    renderActive(stats.active);
   } catch {
     updated.textContent = "Не удалось загрузить счётчик";
     const status = document.querySelector("#works-status");
     if (status) status.textContent = "Не удалось загрузить работы";
+    renderActive([]);
   }
 }
 
@@ -173,8 +193,7 @@ function renderDiscord(profile) {
     avatarWrap.append(deco);
   }
 
-  const plate = document.createElement("span");
-  plate.className = "discord-plate";
+  const layers = [];
   const still = safeHttps(profile.nameplateStatic);
   const videoUrl = safeHttps(profile.nameplateVideo);
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -191,13 +210,13 @@ function renderDiscord(profile) {
     source.src = videoUrl;
     source.type = "video/webm";
     video.append(source);
-    plate.append(video);
+    layers.push(video);
   } else if (still) {
     const frame = document.createElement("img");
     frame.className = "discord-plate__media";
     frame.alt = "";
     frame.src = still;
-    plate.append(frame);
+    layers.push(frame);
   }
 
   const text = document.createElement("span");
@@ -221,9 +240,8 @@ function renderDiscord(profile) {
   }
   if (badges.childElementCount) meta.append(badges);
   text.append(meta);
-  plate.append(text);
 
-  root.replaceChildren(avatarWrap, plate);
+  root.replaceChildren(...layers, avatarWrap, text);
   root.hidden = false;
 }
 
@@ -232,9 +250,10 @@ function discordBadge(badge) {
   if (!icon) return null;
   const image = document.createElement("img");
   image.className = "discord-badge";
-  image.alt = "";
+  image.alt = badge.label || "";
   image.title = badge.label || "";
   image.src = icon;
+  image.addEventListener("error", () => image.remove());
   return image;
 }
 
@@ -385,111 +404,60 @@ function tooltip(day) {
   return `${date}: ${format(count)} ${plural(count, "вклад", "вклада", "вкладов")}`;
 }
 
-const ACTIVE_REPOS = ["ReimaginingAchievements", "PEAK"];
-
-async function loadActive() {
+function renderActive(repos) {
   const root = document.querySelector("#active");
-  const cards = await Promise.all(ACTIVE_REPOS.map(loadActiveRepo));
-  root.replaceChildren(...cards);
+  const list = Array.isArray(repos) ? repos.filter((repo) => repo?.name) : [];
+  if (!list.length) {
+    root.replaceChildren(statusLine("Нет данных о репозиториях"));
+    return;
+  }
+  root.replaceChildren(...list.map(activeCard));
 }
 
-async function loadActiveRepo(name) {
-  const pageUrl = `https://github.com/${GITHUB_USER}/${name}`;
+function activeCard(repo) {
   const card = document.createElement("a");
   card.className = "active-card";
-  card.href = pageUrl;
+  card.href = safeHttps(repo.url) || `https://github.com/${GITHUB_USER}/${encodeURIComponent(repo.name)}`;
   card.target = "_blank";
   card.rel = "noopener noreferrer";
 
   const title = document.createElement("h3");
-  title.textContent = name;
+  title.textContent = repo.name;
   card.append(title);
 
-  let repo = null;
-  let hidden = false;
-  try {
-    const response = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${name}`, {
-      headers: { Accept: "application/vnd.github+json" },
-    });
-    if (response.ok) repo = await response.json();
-    else if (response.status === 404) hidden = true;
-  } catch {
-    repo = null;
-  }
-
-  if (repo?.name) title.textContent = repo.name;
-  if (repo?.description) {
+  if (repo.description) {
     const description = document.createElement("p");
     description.textContent = repo.description;
     card.append(description);
   }
-  if (repo?.language) {
+  if (repo.language) {
     const language = document.createElement("p");
+    language.className = "active-card__lang";
     language.textContent = repo.language;
     card.append(language);
   }
 
   const pulse = document.createElement("div");
   pulse.className = "pulse";
-  if (!repo) {
+  const weeks = Array.isArray(repo.weeks)
+    ? repo.weeks
+        .map((item) => ({ week: new Date(`${item.week}T00:00:00Z`), count: Number(item.count) || 0 }))
+        .filter((item) => !Number.isNaN(item.week.getTime()))
+    : [];
+  if (repo.hidden || !weeks.length) {
     const note = document.createElement("p");
-    note.textContent = hidden
+    note.textContent = repo.hidden
       ? "Скрытый репозиторий. Нет публичной активности"
       : "Нет публичной активности";
     pulse.append(note);
   } else {
-    const weeks = await loadCommitWeeks(name);
-    if (!weeks) {
-      const note = document.createElement("p");
-      note.textContent = "Нет публичной активности";
-      pulse.append(note);
-    } else {
-      const caption = document.createElement("p");
-      caption.className = "pulse__caption";
-      caption.textContent = "Коммиты за 12 недель";
-      pulse.append(caption, renderPulse(weeks));
-    }
+    const caption = document.createElement("p");
+    caption.className = "pulse__caption";
+    caption.textContent = "Коммиты за 12 недель";
+    pulse.append(caption, renderPulse(weeks));
   }
   card.append(pulse);
   return card;
-}
-
-async function loadCommitWeeks(name) {
-  try {
-    const response = await fetch(
-      `https://api.github.com/repos/${GITHUB_USER}/${name}/commits?per_page=100`,
-      { headers: { Accept: "application/vnd.github+json" } },
-    );
-    if (!response.ok) return null;
-    const commits = await response.json();
-    if (!Array.isArray(commits)) return null;
-
-    const start = startOfWeek(new Date());
-    start.setUTCDate(start.getUTCDate() - 11 * 7);
-    const weeks = Array.from({ length: 12 }, (_, index) => {
-      const week = new Date(start);
-      week.setUTCDate(start.getUTCDate() + index * 7);
-      return { week, count: 0 };
-    });
-
-    commits.forEach((commit) => {
-      const raw = commit.commit?.author?.date || commit.commit?.committer?.date;
-      const date = new Date(raw);
-      if (Number.isNaN(date.getTime())) return;
-      const weekTime = startOfWeek(date).getTime();
-      const bucket = weeks.find((item) => item.week.getTime() === weekTime);
-      if (bucket) bucket.count += 1;
-    });
-    return weeks;
-  } catch {
-    return null;
-  }
-}
-
-function startOfWeek(date) {
-  const week = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
-  week.setUTCDate(week.getUTCDate() - week.getUTCDay());
-  return week;
 }
 
 function renderPulse(weeks) {
@@ -522,7 +490,5 @@ function renderPulse(weeks) {
   return bars;
 }
 
-loadProfile();
 loadStats();
 loadContributions();
-loadActive();

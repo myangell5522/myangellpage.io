@@ -1,8 +1,8 @@
 {
-  "total": 123677,
+  "total": 123683,
   "steam": {
     "ok": true,
-    "downloads": 41791
+    "downloads": 41797
   },
   "modrinth": {
     "ok": true,
@@ -11,6 +11,15 @@
   "curseforge": {
     "ok": true,
     "downloads": 55530
+  },
+  "today": {
+    "date": "2026-10-04",
+    "base": {
+      "total": 123677,
+      "steam": 41791,
+      "modrinth": 26356,
+      "curseforge": 55530
+    }
   },
   "projects": [
     {
@@ -25,7 +34,7 @@
       "source": "steam",
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "downloads": 35491,
+      "downloads": 35497,
       "previewUrl": "https://images.steamusercontent.com/ugc/16352074707467153735/FAE4094CFF5942E1EC38FA692479CD557A713053/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -166,7 +175,7 @@
     {
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "subscriptions": 35491,
+      "subscriptions": 35497,
       "previewUrl": "https://images.steamusercontent.com/ugc/16352074707467153735/FAE4094CFF5942E1EC38FA692479CD557A713053/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -226,20 +235,94 @@
         "icon": "https://cdn.discordapp.com/badge-icons/8a88d63823d8a71cd5e390baa45efa02.png"
       },
       {
-        "label": "Orbs",
+        "label": "Старое имя: danceq#6786",
+        "icon": "https://cdn.discordapp.com/badge-icons/6de6d34650760ba5551a79732e98ed60.png"
+      },
+      {
+        "label": "Выполнено задание",
+        "icon": "https://cdn.discordapp.com/badge-icons/7d9ae358c8c5e118768335dbe68b4fb8.png"
+      },
+      {
+        "label": "Сферы",
         "icon": "https://cdn.discordapp.com/assets/content/615334270467aa3d5adc86cc67efee89f8380a87b945a96e89ec2eb37c27993d.png"
       },
       {
-        "label": "Nitro",
-        "icon": "https://discord.com/assets/24d05f3b46a110e538674edbac0db4cd.svg"
-      },
-      {
-        "label": "Completed a Quest",
-        "icon": "https://cdn.discordapp.com/badge-icons/7d9ae358c8c5e118768335dbe68b4fb8.png"
+        "label": "Подарки, ур. «Филантроп»",
+        "icon": "https://cdn.discordapp.com/badge-icons/ac305d1b9481f312ce4419e7f8296558.png"
       }
     ],
     "nameplateVideo": "https://cdn.discordapp.com/assets/collectibles/nameplates/nameplates_v2/sword_of_legend/asset.webm",
     "nameplateStatic": "https://cdn.discordapp.com/assets/collectibles/nameplates/nameplates_v2/sword_of_legend/static.png"
   },
-  "updatedAt": "2026-10-04T13:30:57.436Z"
+  "github": {
+    "login": "myangell5522",
+    "name": "myangell*舒米",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/140273750?v=4",
+    "url": "https://github.com/myangell5522"
+  },
+  "active": [
+    {
+      "name": "ReimaginingAchievements",
+      "url": "https://github.com/myangell5522/ReimaginingAchievements",
+      "description": "Expanding Terraria's Achievements",
+      "language": "C#",
+      "hidden": false,
+      "weeks": [
+        {
+          "week": "2026-07-19",
+          "count": 0
+        },
+        {
+          "week": "2026-07-26",
+          "count": 0
+        },
+        {
+          "week": "2026-08-02",
+          "count": 0
+        },
+        {
+          "week": "2026-08-09",
+          "count": 0
+        },
+        {
+          "week": "2026-08-16",
+          "count": 0
+        },
+        {
+          "week": "2026-08-23",
+          "count": 0
+        },
+        {
+          "week": "2026-08-30",
+          "count": 0
+        },
+        {
+          "week": "2026-09-06",
+          "count": 0
+        },
+        {
+          "week": "2026-09-13",
+          "count": 0
+        },
+        {
+          "week": "2026-09-20",
+          "count": 0
+        },
+        {
+          "week": "2026-09-27",
+          "count": 0
+        },
+        {
+          "week": "2026-10-04",
+          "count": 8
+        }
+      ]
+    },
+    {
+      "name": "PEAK",
+      "url": "https://github.com/myangell5522/PEAK",
+      "hidden": true
+    }
+  ],
+  "updatedAt": "2026-10-04T14:03:39.570Z"
 }
