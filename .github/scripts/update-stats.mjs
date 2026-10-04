@@ -20,12 +20,21 @@ const projects = [...steam.items, ...modrinth.items, ...curseforge.items].sort(
   (a, b) => b.downloads - a.downloads || a.title.localeCompare(b.title, "ru"),
 );
 
+const steamItems = steam.items.map((item) => ({
+  id: item.id,
+  title: item.title,
+  subscriptions: item.downloads,
+  previewUrl: item.previewUrl,
+  url: item.url,
+}));
+
 const next = {
   total: steam.downloads + modrinth.downloads + curseforge.downloads,
   steam: { ok: steam.ok, downloads: steam.downloads },
   modrinth: { ok: modrinth.ok, downloads: modrinth.downloads },
   curseforge: { ok: curseforge.ok, downloads: curseforge.downloads },
   projects,
+  steamItems,
 };
 
 if (!steam.ok && !modrinth.ok && !curseforge.ok && !previous) {
@@ -60,6 +69,7 @@ function withoutStamp(stats) {
     modrinth: stats.modrinth,
     curseforge: stats.curseforge,
     projects: stats.projects,
+    steamItems: stats.steamItems,
   };
 }
 

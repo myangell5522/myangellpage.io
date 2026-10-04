@@ -1,8 +1,8 @@
 {
-  "total": 123394,
+  "total": 123395,
   "steam": {
     "ok": true,
-    "downloads": 41660
+    "downloads": 41661
   },
   "modrinth": {
     "ok": true,
@@ -25,7 +25,7 @@
       "source": "steam",
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "downloads": 35368,
+      "downloads": 35370,
       "previewUrl": "https://images.steamusercontent.com/ugc/16352074707467153735/FAE4094CFF5942E1EC38FA692479CD557A713053/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -65,7 +65,7 @@
       "source": "steam",
       "id": "3785275303",
       "title": "Keystrokes",
-      "downloads": 912,
+      "downloads": 911,
       "previewUrl": "https://images.steamusercontent.com/ugc/15964681018894652936/B92CE3931F677DDE25D7F1F3F3B5892FC8729ED8/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3785275303"
     },
@@ -134,5 +134,84 @@
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3456272360"
     }
   ],
-  "updatedAt": "2026-10-04T02:07:44.103Z"
+  "steamItems": [
+    {
+      "id": "3792104577",
+      "title": "Terraria Bounce",
+      "subscriptions": 1274,
+      "previewUrl": "https://images.steamusercontent.com/ugc/10859106396673764060/A315BDDA951DA125DB01BBE0DF50182B01734E95/",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792104577"
+    },
+    {
+      "id": "3792811842",
+      "title": "Wallpaper Engine",
+      "subscriptions": 2607,
+      "previewUrl": "https://images.steamusercontent.com/ugc/18203176254922855527/82A528C1AB67B1FB9C03661784F90425023B5D54/",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792811842"
+    },
+    {
+      "id": "3787224121",
+      "title": "The End Of A Calamity",
+      "subscriptions": 765,
+      "previewUrl": "https://images.steamusercontent.com/ugc/16394421516552150902/DDAC1248100EBAEAD86032E914EA0152A08AF627/",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3787224121"
+    },
+    {
+      "id": "3785275303",
+      "title": "Keystrokes",
+      "subscriptions": 911,
+      "previewUrl": "https://images.steamusercontent.com/ugc/15964681018894652936/B92CE3931F677DDE25D7F1F3F3B5892FC8729ED8/",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3785275303"
+    },
+    {
+      "id": "3783384562",
+      "title": "The End Of A Calamity Menu Theme",
+      "subscriptions": 35370,
+      "previewUrl": "https://images.steamusercontent.com/ugc/16352074707467153735/FAE4094CFF5942E1EC38FA692479CD557A713053/",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
+    },
+    {
+      "id": "3401005260",
+      "title": "«Мита (MiSide)»",
+      "subscriptions": 422,
+      "previewUrl": "https://images.steamusercontent.com/ugc/10364594100972524430/5E0CA8602058B6F4229ED452D4DD4B15E4449851/",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3401005260"
+    },
+    {
+      "id": "3017759850",
+      "title": "Windows 11 Light",
+      "subscriptions": 96,
+      "previewUrl": "https://images.steamusercontent.com/ugc/2017102299331603624/95894237E0B25A1F955206307EF42E34D78C2270/",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3017759850"
+    },
+    {
+      "id": "3456256099",
+      "title": "Minecraft Enchanted Netherite Sword",
+      "subscriptions": 49,
+      "previewUrl": "https://images.steamusercontent.com/ugc/58090453779424281/3D0481F846D46ED413D1EE65ACBC7DDB0F49CFDA/",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3456256099"
+    },
+    {
+      "id": "3456272360",
+      "title": "«Камелия (Wuthering Waves)»",
+      "subscriptions": 21,
+      "previewUrl": "https://images.steamusercontent.com/ugc/58090453779583666/A9F370B25E714C109567459084E40139AD1601AD/",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3456272360"
+    },
+    {
+      "id": "3456277123",
+      "title": "«Мияби (ZZZ)»",
+      "subscriptions": 54,
+      "previewUrl": "https://images.steamusercontent.com/ugc/58090453779627621/8EB950197D55725CCB364B126A53939AED062B29/",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3456277123"
+    },
+    {
+      "id": "3794649591",
+      "title": "Swap My Audio!",
+      "subscriptions": 92,
+      "previewUrl": "https://images.steamusercontent.com/ugc/17918049774901576026/28C455F4CB188598209A74B1D47A688DA6FA7D9B/",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3794649591"
+    }
+  ],
+  "updatedAt": "2026-10-04T02:14:45.817Z"
 }
