@@ -118,7 +118,7 @@ async function loadStats() {
     animateCount(countEls.modrinth, modrinth);
     animateCount(countEls.curseforge, curseforge);
 
-    labelCard("card-steam", "Steam", steam, "подписчик", "подписчика", "подписчиков");
+    labelCard("card-steam", "Steam", steam, "загрузка", "загрузки", "загрузок");
     labelCard("card-modrinth", "Modrinth", modrinth, "загрузка", "загрузки", "загрузок");
     labelCard("card-curseforge", "CurseForge", curseforge, "загрузка", "загрузки", "загрузок");
 
@@ -133,7 +133,7 @@ async function loadStats() {
       updated.textContent = "";
     }
 
-    renderWorks(stats.steamItems || []);
+    renderWorks(stats.projects || stats.steamItems || []);
   } catch {
     updated.textContent = "Не удалось загрузить счётчик";
     const status = document.querySelector("#works-status");
@@ -150,11 +150,17 @@ function labelCard(id, brand, value, one, few, many) {
   );
 }
 
+const SOURCE_ICONS = {
+  steam: "svg/steam.svg",
+  modrinth: "svg/modrinth.svg",
+  curseforge: "svg/curseforge.svg",
+};
+
 function renderWorks(items) {
   const root = document.querySelector("#works");
   const sorted = items
     .filter((item) => item && item.title && safeHttps(item.url))
-    .sort((a, b) => (b.subscriptions || 0) - (a.subscriptions || 0));
+    .sort((a, b) => (b.downloads ?? b.subscriptions ?? 0) - (a.downloads ?? a.subscriptions ?? 0));
 
   if (!sorted.length) {
     root.replaceChildren(statusLine("Нет публичных работ"));
@@ -172,6 +178,7 @@ function renderWorks(items) {
       const preview = safeHttps(item.previewUrl);
       if (preview) {
         const image = document.createElement("img");
+        image.className = "work__preview";
         image.src = preview;
         image.alt = "";
         image.loading = "lazy";
@@ -180,11 +187,20 @@ function renderWorks(items) {
         link.append(image);
       }
 
+      const icon = SOURCE_ICONS[item.source];
+      if (icon) {
+        const badge = document.createElement("img");
+        badge.className = "work__badge";
+        badge.src = icon;
+        badge.alt = "";
+        link.append(badge);
+      }
+
       const title = document.createElement("h3");
       title.textContent = item.title;
       const meta = document.createElement("p");
-      const count = Math.max(0, Math.round(item.subscriptions || 0));
-      meta.textContent = `${format(count)} ${plural(count, "подписчик", "подписчика", "подписчиков")}`;
+      const count = Math.max(0, Math.round(item.downloads ?? item.subscriptions ?? 0));
+      meta.textContent = `${format(count)} ${plural(count, "загрузка", "загрузки", "загрузок")}`;
       link.append(title, meta);
       return link;
     }),

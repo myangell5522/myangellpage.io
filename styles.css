@@ -204,6 +204,7 @@ a:focus-visible {
   width: 22px;
   height: 22px;
   flex: none;
+  object-fit: contain;
 }
 
 .card__count {
@@ -349,6 +350,7 @@ a:focus-visible {
 }
 
 .work {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -367,11 +369,24 @@ a:focus-visible {
   transform: translateY(-1px);
 }
 
-.work img {
+.work__preview {
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   background: #0d1117;
+}
+
+.work__badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  padding: 4px;
+  border-radius: 8px;
+  object-fit: contain;
+  background: rgba(13, 17, 23, 0.88);
+  box-shadow: 0 0 0 1px rgba(240, 246, 252, 0.14);
 }
 
 .work h3 {
