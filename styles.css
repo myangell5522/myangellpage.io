@@ -236,7 +236,8 @@ a:focus-visible {
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
-  gap: 12px;
+  gap: 8px;
+  padding: 12px;
 }
 
 .discord-card__head {
@@ -250,11 +251,8 @@ a:focus-visible {
 .discord-preview {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   width: 100%;
-  padding: 10px 12px;
-  background: #111214;
-  border-radius: 10px;
 }
 
 .discord-preview[hidden] {
@@ -263,17 +261,17 @@ a:focus-visible {
 
 .discord-avatar {
   position: relative;
-  width: 72px;
-  height: 72px;
+  width: 56px;
+  height: 56px;
   flex: none;
 }
 
 .discord-avatar__img {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  width: 48px;
-  height: 48px;
+  top: 8px;
+  left: 8px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
   background: #111214;
@@ -288,21 +286,44 @@ a:focus-visible {
   pointer-events: none;
 }
 
+.discord-plate {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  min-width: 0;
+  min-height: 52px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #111214;
+}
+
+.discord-plate__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+  pointer-events: none;
+}
+
 .discord-preview__text {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
+  width: 100%;
   min-width: 0;
+  padding: 6px 10px;
 }
 
 .discord-preview__name {
-  display: inline-block;
-  align-self: flex-start;
   max-width: 100%;
-  padding: 0 8px;
-  border-radius: 6px;
-  color: #f2f3f5;
-  font-weight: 700;
-  line-height: 1.35;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.2;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -318,24 +339,19 @@ a:focus-visible {
 
 .discord-preview__user {
   color: #b5bac1;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 
 .discord-badges {
   display: flex;
-  gap: 4px;
+  gap: 3px;
   flex: none;
 }
 
 .discord-badge {
-  display: inline-flex;
-  width: 18px;
-  height: 18px;
-}
-
-.discord-badge svg {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
 }
 
 .panel {

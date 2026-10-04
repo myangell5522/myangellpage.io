@@ -7,6 +7,28 @@ const sourcesPath = join(root, "data", "sources.json");
 const statsPath = join(root, "data", "stats.json");
 const UA = "myangellpage (https://github.com/myangell5522)";
 
+const DISCORD_FLAG_BADGES = {
+  HOUSE_BRAVERY: {
+    label: "HypeSquad Bravery",
+    icon: "https://cdn.discordapp.com/badge-icons/8a88d63823d8a71cd5e390baa45efa02.png",
+  },
+};
+
+const DISCORD_EXTRA_BADGES = [
+  {
+    label: "Orbs",
+    icon: "https://cdn.discordapp.com/assets/content/615334270467aa3d5adc86cc67efee89f8380a87b945a96e89ec2eb37c27993d.png",
+  },
+  {
+    label: "Nitro",
+    icon: "https://discord.com/assets/24d05f3b46a110e538674edbac0db4cd.svg",
+  },
+  {
+    label: "Completed a Quest",
+    icon: "https://cdn.discordapp.com/badge-icons/7d9ae358c8c5e118768335dbe68b4fb8.png",
+  },
+];
+
 const sources = JSON.parse(await readFile(sourcesPath, "utf8"));
 const previous = await readPrevious();
 
@@ -247,6 +269,7 @@ async function fetchDiscord() {
     const decoration = /^a?_[A-Za-z0-9]+$/.test(asset || "")
       ? `https://cdn.discordapp.com/avatar-decoration-presets/${asset}.png`
       : "";
+    const plate = discordNameplate(data);
     return {
       ok: true,
       id: String(data.id),
@@ -254,13 +277,31 @@ async function fetchDiscord() {
       globalName: data.global_name || data.username || "",
       avatarUrl: discordAvatar(data),
       decorationUrl: decoration,
-      badges: Array.isArray(data.public_flags_array) ? data.public_flags_array.filter((flag) => typeof flag === "string") : [],
-      nameplatePalette: data.collectibles?.nameplate?.palette || "",
+      badges: discordBadges(data.public_flags_array),
+      nameplateVideo: plate.videoUrl,
+      nameplateStatic: plate.staticUrl,
     };
   } catch (error) {
     console.error(`Discord profile failed: ${error.message}`);
     return fallback;
   }
+}
+
+function discordBadges(flags) {
+  const fromFlags = (Array.isArray(flags) ? flags : [])
+    .map((flag) => DISCORD_FLAG_BADGES[flag])
+    .filter(Boolean);
+  const seen = new Set(fromFlags.map((badge) => badge.icon));
+  return [...fromFlags, ...DISCORD_EXTRA_BADGES.filter((badge) => !seen.has(badge.icon))];
+}
+
+function discordNameplate(data) {
+  const asset = data.collectibles?.nameplate?.asset || "";
+  if (!/^nameplates\/nameplates_v\d+\/[a-z0-9_]+\/$/.test(asset)) {
+    return { videoUrl: "", staticUrl: "" };
+  }
+  const base = `https://cdn.discordapp.com/assets/collectibles/${asset}`;
+  return { videoUrl: `${base}asset.webm`, staticUrl: `${base}static.png` };
 }
 
 function discordAvatar(data) {

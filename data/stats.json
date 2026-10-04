@@ -1,12 +1,12 @@
 {
-  "total": 123673,
+  "total": 123677,
   "steam": {
     "ok": true,
     "downloads": 41791
   },
   "modrinth": {
     "ok": true,
-    "downloads": 26352
+    "downloads": 26356
   },
   "curseforge": {
     "ok": true,
@@ -33,7 +33,7 @@
       "source": "modrinth",
       "id": "sGvIum2l",
       "title": "Player Locator Reforged",
-      "downloads": 26352,
+      "downloads": 26356,
       "previewUrl": "https://cdn.modrinth.com/data/sGvIum2l/5e61a6defa1035d619217ed88766f5d7a8ca9a51.png",
       "url": "https://modrinth.com/mod/player-locator-plus-reforged"
     },
@@ -221,9 +221,25 @@
     "avatarUrl": "https://cdn.discordapp.com/avatars/844636528406822942/e5a97d88ed0dda2915b0d4c891b60c2d.png",
     "decorationUrl": "https://cdn.discordapp.com/avatar-decoration-presets/a_8ffa2ba9bff18e96b76c2e66fd0d7fa3.png",
     "badges": [
-      "HOUSE_BRAVERY"
+      {
+        "label": "HypeSquad Bravery",
+        "icon": "https://cdn.discordapp.com/badge-icons/8a88d63823d8a71cd5e390baa45efa02.png"
+      },
+      {
+        "label": "Orbs",
+        "icon": "https://cdn.discordapp.com/assets/content/615334270467aa3d5adc86cc67efee89f8380a87b945a96e89ec2eb37c27993d.png"
+      },
+      {
+        "label": "Nitro",
+        "icon": "https://discord.com/assets/24d05f3b46a110e538674edbac0db4cd.svg"
+      },
+      {
+        "label": "Completed a Quest",
+        "icon": "https://cdn.discordapp.com/badge-icons/7d9ae358c8c5e118768335dbe68b4fb8.png"
+      }
     ],
-    "nameplatePalette": "cobalt"
+    "nameplateVideo": "https://cdn.discordapp.com/assets/collectibles/nameplates/nameplates_v2/sword_of_legend/asset.webm",
+    "nameplateStatic": "https://cdn.discordapp.com/assets/collectibles/nameplates/nameplates_v2/sword_of_legend/static.png"
   },
-  "updatedAt": "2026-10-04T13:13:45.390Z"
+  "updatedAt": "2026-10-04T13:30:57.436Z"
 }
