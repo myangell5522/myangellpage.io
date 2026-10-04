@@ -2,11 +2,15 @@ name: Update download stats
 
 on:
   schedule:
-    - cron: "0 */6 * * *"
+    - cron: "0 * * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
+
+concurrency:
+  group: update-stats
+  cancel-in-progress: false
 
 jobs:
   update:
@@ -22,6 +26,8 @@ jobs:
 
       - name: Fetch stats
         run: node .github/scripts/update-stats.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Commit stats
         run: |
@@ -32,5 +38,6 @@ jobs:
             echo "No changes"
           else
             git commit -m "Update download stats"
+            git pull --rebase
             git push
           fi

@@ -16,27 +16,37 @@ const DISCORD_FLAG_BADGES = {
 
 const DISCORD_EXTRA_BADGES = [
   {
-    label: "Orbs",
+    label: "Старое имя: danceq#6786",
+    icon: "https://cdn.discordapp.com/badge-icons/6de6d34650760ba5551a79732e98ed60.png",
+  },
+  {
+    label: "Выполнено задание",
+    icon: "https://cdn.discordapp.com/badge-icons/7d9ae358c8c5e118768335dbe68b4fb8.png",
+  },
+  {
+    label: "Сферы",
     icon: "https://cdn.discordapp.com/assets/content/615334270467aa3d5adc86cc67efee89f8380a87b945a96e89ec2eb37c27993d.png",
   },
   {
-    label: "Nitro",
-    icon: "https://discord.com/assets/24d05f3b46a110e538674edbac0db4cd.svg",
-  },
-  {
-    label: "Completed a Quest",
-    icon: "https://cdn.discordapp.com/badge-icons/7d9ae358c8c5e118768335dbe68b4fb8.png",
+    label: "Подарки, ур. «Филантроп»",
+    icon: "https://cdn.discordapp.com/badge-icons/ac305d1b9481f312ce4419e7f8296558.png",
   },
 ];
 
 const sources = JSON.parse(await readFile(sourcesPath, "utf8"));
 const previous = await readPrevious();
+const GITHUB_HEADERS = {
+  Accept: "application/vnd.github+json",
+  ...(process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {}),
+};
 
-const [steam, modrinth, curseforge, discord] = await Promise.all([
+const [steam, modrinth, curseforge, discord, github, active] = await Promise.all([
   fetchSteam(),
   fetchModrinth(),
   fetchCurseforge(),
   fetchDiscord(),
+  fetchGithubProfile(),
+  fetchActiveRepos(),
 ]);
 
 const projects = [...steam.items, ...modrinth.items, ...curseforge.items].sort(
@@ -51,14 +61,19 @@ const steamItems = steam.items.map((item) => ({
   url: item.url,
 }));
 
+const total = steam.downloads + modrinth.downloads + curseforge.downloads;
+
 const next = {
-  total: steam.downloads + modrinth.downloads + curseforge.downloads,
+  total,
   steam: { ok: steam.ok, downloads: steam.downloads },
   modrinth: { ok: modrinth.ok, downloads: modrinth.downloads },
   curseforge: { ok: curseforge.ok, downloads: curseforge.downloads },
+  today: dailyBase(),
   projects,
   steamItems,
   discord,
+  github,
+  active,
 };
 
 if (!steam.ok && !modrinth.ok && !curseforge.ok && !previous) {
@@ -92,10 +107,121 @@ function withoutStamp(stats) {
     steam: stats.steam,
     modrinth: stats.modrinth,
     curseforge: stats.curseforge,
+    today: stats.today ?? null,
     projects: stats.projects,
     steamItems: stats.steamItems,
     discord: stats.discord ?? null,
+    github: stats.github ?? null,
+    active: stats.active ?? null,
   };
+}
+
+function moscowDate(date) {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Europe/Moscow",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(date);
+}
+
+function dailyBase() {
+  const date = moscowDate(new Date());
+  if (previous?.today?.date === date && previous.today.base) return previous.today;
+  const source = previous || {
+    total,
+    steam: { downloads: steam.downloads },
+    modrinth: { downloads: modrinth.downloads },
+    curseforge: { downloads: curseforge.downloads },
+  };
+  return {
+    date,
+    base: {
+      total: Number(source.total) || 0,
+      steam: Number(source.steam?.downloads) || 0,
+      modrinth: Number(source.modrinth?.downloads) || 0,
+      curseforge: Number(source.curseforge?.downloads) || 0,
+    },
+  };
+}
+
+async function fetchGithubProfile() {
+  const fallback = previous?.github?.login ? previous.github : null;
+  try {
+    const user = await getJson(`https://api.github.com/users/${encodeURIComponent(sources.github)}`, {
+      headers: GITHUB_HEADERS,
+    });
+    return {
+      login: user.login || sources.github,
+      name: user.name || user.login || sources.github,
+      avatarUrl: user.avatar_url || "",
+      url: user.html_url || `https://github.com/${sources.github}`,
+    };
+  } catch (error) {
+    console.error(`GitHub profile failed: ${error.message}`);
+    return fallback;
+  }
+}
+
+async function fetchActiveRepos() {
+  const names = Array.isArray(sources.activeRepos) ? sources.activeRepos : [];
+  const stored = Array.isArray(previous?.active) ? previous.active : [];
+  const repos = [];
+  for (const name of names) {
+    repos.push(await fetchActiveRepo(String(name), stored.find((repo) => repo.name === name)));
+  }
+  return repos;
+}
+
+async function fetchActiveRepo(name, fallback) {
+  const owner = encodeURIComponent(sources.github);
+  const repoPath = `https://api.github.com/repos/${owner}/${encodeURIComponent(name)}`;
+  const url = `https://github.com/${sources.github}/${name}`;
+  try {
+    const response = await fetch(repoPath, {
+      headers: { ...GITHUB_HEADERS, "User-Agent": UA },
+      signal: AbortSignal.timeout(20000),
+    });
+    if (response.status === 404) return { name, url, hidden: true };
+    if (!response.ok) throw new Error(`${response.status} ${repoPath}`);
+    const repo = await response.json();
+    const commits = await getJson(`${repoPath}/commits?per_page=100`, { headers: GITHUB_HEADERS });
+    return {
+      name: repo.name || name,
+      url: repo.html_url || url,
+      description: repo.description || "",
+      language: repo.language || "",
+      hidden: false,
+      weeks: commitWeeks(Array.isArray(commits) ? commits : []),
+    };
+  } catch (error) {
+    console.error(`GitHub repo ${name} failed: ${error.message}`);
+    return fallback || { name, url, hidden: false, weeks: null };
+  }
+}
+
+function commitWeeks(commits) {
+  const start = startOfWeek(new Date());
+  start.setUTCDate(start.getUTCDate() - 11 * 7);
+  const weeks = Array.from({ length: 12 }, (_, index) => {
+    const week = new Date(start);
+    week.setUTCDate(start.getUTCDate() + index * 7);
+    return { week: week.toISOString().slice(0, 10), count: 0 };
+  });
+  for (const commit of commits) {
+    const date = new Date(commit.commit?.author?.date || commit.commit?.committer?.date);
+    if (Number.isNaN(date.getTime())) continue;
+    const key = startOfWeek(date).toISOString().slice(0, 10);
+    const bucket = weeks.find((item) => item.week === key);
+    if (bucket) bucket.count += 1;
+  }
+  return weeks;
+}
+
+function startOfWeek(date) {
+  const week = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
+  week.setUTCDate(week.getUTCDate() - week.getUTCDay());
+  return week;
 }
 
 async function readPrevious() {
