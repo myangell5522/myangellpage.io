@@ -95,7 +95,7 @@ a:focus-visible {
 
 .hero h2,
 .panel h2,
-.works-section h2 {
+.stage h2 {
   margin: 0;
   font-size: 0.95rem;
   font-weight: 600;
@@ -221,8 +221,7 @@ a:focus-visible {
   color: #58a6ff;
 }
 
-.panel,
-.works-section {
+.panel {
   margin-top: 28px;
 }
 
@@ -342,11 +341,105 @@ a:focus-visible {
   font-size: 12px;
 }
 
+.stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+  gap: 16px;
+  align-items: start;
+  margin-top: 28px;
+}
+
+.works-scroll {
+  max-height: 640px;
+  margin-top: 14px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
 .works {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  grid-template-columns: 1fr;
   gap: 12px;
-  margin-top: 14px;
+}
+
+.stage__active {
+  padding: 16px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.stage__active h2 {
+  margin: 0 0 14px;
+}
+
+.active-card {
+  display: block;
+  margin-top: 12px;
+  padding: 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.active-card:first-child {
+  margin-top: 0;
+}
+
+.active-card:hover {
+  border-color: #3fb950;
+  color: inherit;
+}
+
+.active-card h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--bright);
+}
+
+.active-card p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.pulse {
+  margin-top: 12px;
+}
+
+.pulse__caption {
+  margin: 0 0 8px;
+}
+
+.pulse__bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 40px;
+}
+
+.pulse__bar {
+  flex: 1;
+  min-width: 0;
+  border-radius: 2px;
+  display: block;
+}
+
+.pulse__bar--live {
+  animation: activity-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes activity-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
 }
 
 .work {
@@ -404,6 +497,18 @@ a:focus-visible {
 }
 
 @media (max-width: 800px) {
+  .stage {
+    grid-template-columns: 1fr;
+  }
+
+  .stage__active {
+    order: -1;
+  }
+
+  .works-scroll {
+    max-height: 520px;
+  }
+
   .cards {
     grid-template-columns: 1fr 1fr;
   }
@@ -451,8 +556,10 @@ a:focus-visible {
   .total__value,
   .count,
   .card,
-  .work {
+  .work,
+  .pulse__bar--live {
     transition: none;
+    animation: none;
   }
 
   .card:hover,

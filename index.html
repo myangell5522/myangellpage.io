@@ -6,7 +6,7 @@
     <title>myangell</title>
     <meta name="description" content="Загрузки модов и работ мастерской Steam, Modrinth и CurseForge.">
     <meta name="theme-color" content="#0d1117">
-    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="stylesheet" href="styles.css?v=3">
   </head>
   <body>
     <main class="page">
@@ -112,15 +112,25 @@
         </div>
       </section>
 
-      <section class="works-section" aria-labelledby="works-heading">
-        <div class="panel__head">
-          <h2 id="works-heading">Проекты</h2>
+      <section class="stage">
+        <div class="stage__list">
+          <div class="panel__head">
+            <h2 id="works-heading">Проекты</h2>
+          </div>
+          <div class="works-scroll">
+            <div id="works" class="works">
+              <p class="muted" id="works-status">Загрузка работ…</p>
+            </div>
+          </div>
         </div>
-        <div id="works" class="works">
-          <p class="muted" id="works-status">Загрузка работ…</p>
-        </div>
+        <aside class="stage__active" aria-labelledby="active-heading">
+          <h2 id="active-heading">В работе</h2>
+          <div id="active">
+            <p class="muted">Загрузка…</p>
+          </div>
+        </aside>
       </section>
     </main>
-    <script src="app.js?v=2"></script>
+    <script src="app.js?v=3"></script>
   </body>
 </html>

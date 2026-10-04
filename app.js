@@ -297,6 +297,140 @@ function tooltip(day) {
   return `${date}: ${format(count)} ${plural(count, "вклад", "вклада", "вкладов")}`;
 }
 
+const ACTIVE_REPOS = ["ReimaginingAchievements", "PEAK"];
+
+async function loadActive() {
+  const root = document.querySelector("#active");
+  const cards = await Promise.all(ACTIVE_REPOS.map(loadActiveRepo));
+  root.replaceChildren(...cards);
+}
+
+async function loadActiveRepo(name) {
+  const pageUrl = `https://github.com/${GITHUB_USER}/${name}`;
+  const card = document.createElement("a");
+  card.className = "active-card";
+  card.href = pageUrl;
+  card.target = "_blank";
+  card.rel = "noopener noreferrer";
+
+  const title = document.createElement("h3");
+  title.textContent = name;
+  card.append(title);
+
+  let repo = null;
+  try {
+    const response = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${name}`, {
+      headers: { Accept: "application/vnd.github+json" },
+    });
+    if (response.ok) repo = await response.json();
+  } catch {
+    repo = null;
+  }
+
+  if (repo?.name) title.textContent = repo.name;
+  if (repo?.description) {
+    const description = document.createElement("p");
+    description.textContent = repo.description;
+    card.append(description);
+  }
+  if (repo?.language) {
+    const language = document.createElement("p");
+    language.textContent = repo.language;
+    card.append(language);
+  }
+
+  const pulse = document.createElement("div");
+  pulse.className = "pulse";
+  if (!repo) {
+    const note = document.createElement("p");
+    note.textContent = "Нет публичной активности";
+    pulse.append(note);
+  } else {
+    const weeks = await loadCommitWeeks(name);
+    if (!weeks) {
+      const note = document.createElement("p");
+      note.textContent = "Нет публичной активности";
+      pulse.append(note);
+    } else {
+      const caption = document.createElement("p");
+      caption.className = "pulse__caption";
+      caption.textContent = "Коммиты за 12 недель";
+      pulse.append(caption, renderPulse(weeks));
+    }
+  }
+  card.append(pulse);
+  return card;
+}
+
+async function loadCommitWeeks(name) {
+  try {
+    const response = await fetch(
+      `https://api.github.com/repos/${GITHUB_USER}/${name}/commits?per_page=100`,
+      { headers: { Accept: "application/vnd.github+json" } },
+    );
+    if (!response.ok) return null;
+    const commits = await response.json();
+    if (!Array.isArray(commits)) return null;
+
+    const start = startOfWeek(new Date());
+    start.setUTCDate(start.getUTCDate() - 11 * 7);
+    const weeks = Array.from({ length: 12 }, (_, index) => {
+      const week = new Date(start);
+      week.setUTCDate(start.getUTCDate() + index * 7);
+      return { week, count: 0 };
+    });
+
+    commits.forEach((commit) => {
+      const raw = commit.commit?.author?.date || commit.commit?.committer?.date;
+      const date = new Date(raw);
+      if (Number.isNaN(date.getTime())) return;
+      const weekTime = startOfWeek(date).getTime();
+      const bucket = weeks.find((item) => item.week.getTime() === weekTime);
+      if (bucket) bucket.count += 1;
+    });
+    return weeks;
+  } catch {
+    return null;
+  }
+}
+
+function startOfWeek(date) {
+  const week = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
+  week.setUTCDate(week.getUTCDate() - week.getUTCDay());
+  return week;
+}
+
+function renderPulse(weeks) {
+  const bars = document.createElement("div");
+  bars.className = "pulse__bars";
+  bars.setAttribute("role", "img");
+  bars.setAttribute("aria-label", "Активность за 12 недель");
+  const max = Math.max(1, ...weeks.map((week) => week.count));
+  let lastActive = -1;
+  weeks.forEach((week, index) => {
+    if (week.count > 0) lastActive = index;
+  });
+
+  weeks.forEach((week, index) => {
+    const bar = document.createElement("span");
+    const level = week.count === 0 ? 0 : Math.min(4, Math.ceil((week.count / max) * 4));
+    bar.className = `pulse__bar day--l${level}`;
+    if (index === lastActive) bar.classList.add("pulse__bar--live");
+    bar.style.height = week.count === 0 ? "4px" : `${Math.max(10, Math.round((week.count / max) * 36))}px`;
+    const label = new Intl.DateTimeFormat("ru-RU", {
+      day: "numeric",
+      month: "short",
+      timeZone: "UTC",
+    }).format(week.week);
+    bar.title = week.count
+      ? `${label}: ${format(week.count)} ${plural(week.count, "коммит", "коммита", "коммитов")}`
+      : `${label}: нет коммитов`;
+    bars.append(bar);
+  });
+  return bars;
+}
+
 loadProfile();
 loadStats();
 loadContributions();
+loadActive();
