@@ -1,23 +1,23 @@
 {
-  "total": 123395,
+  "total": 123627,
   "steam": {
     "ok": true,
-    "downloads": 41661
+    "downloads": 41763
   },
   "modrinth": {
     "ok": true,
-    "downloads": 26303
+    "downloads": 26345
   },
   "curseforge": {
     "ok": true,
-    "downloads": 55431
+    "downloads": 55519
   },
   "projects": [
     {
       "source": "curseforge",
       "id": "1430255",
       "title": "Exposure + Immersive Paintings",
-      "downloads": 42410,
+      "downloads": 42470,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1614/500/256/256/639040606607073315.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/exposure-immersive-paintings"
     },
@@ -25,7 +25,7 @@
       "source": "steam",
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "downloads": 35370,
+      "downloads": 35465,
       "previewUrl": "https://images.steamusercontent.com/ugc/16352074707467153735/FAE4094CFF5942E1EC38FA692479CD557A713053/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -33,7 +33,7 @@
       "source": "modrinth",
       "id": "sGvIum2l",
       "title": "Player Locator Reforged",
-      "downloads": 26303,
+      "downloads": 26345,
       "previewUrl": "https://cdn.modrinth.com/data/sGvIum2l/5e61a6defa1035d619217ed88766f5d7a8ca9a51.png",
       "url": "https://modrinth.com/mod/player-locator-plus-reforged"
     },
@@ -41,7 +41,7 @@
       "source": "curseforge",
       "id": "1423062",
       "title": "Quest Plague",
-      "downloads": 12691,
+      "downloads": 12719,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1600/231/256/256/639033968927424592.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/quest-plague"
     },
@@ -49,7 +49,7 @@
       "source": "steam",
       "id": "3792811842",
       "title": "Wallpaper Engine",
-      "downloads": 2607,
+      "downloads": 2609,
       "previewUrl": "https://images.steamusercontent.com/ugc/18203176254922855527/82A528C1AB67B1FB9C03661784F90425023B5D54/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792811842"
     },
@@ -57,7 +57,7 @@
       "source": "steam",
       "id": "3792104577",
       "title": "Terraria Bounce",
-      "downloads": 1274,
+      "downloads": 1276,
       "previewUrl": "https://images.steamusercontent.com/ugc/10859106396673764060/A315BDDA951DA125DB01BBE0DF50182B01734E95/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792104577"
     },
@@ -65,7 +65,7 @@
       "source": "steam",
       "id": "3785275303",
       "title": "Keystrokes",
-      "downloads": 911,
+      "downloads": 914,
       "previewUrl": "https://images.steamusercontent.com/ugc/15964681018894652936/B92CE3931F677DDE25D7F1F3F3B5892FC8729ED8/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3785275303"
     },
@@ -138,14 +138,14 @@
     {
       "id": "3792104577",
       "title": "Terraria Bounce",
-      "subscriptions": 1274,
+      "subscriptions": 1276,
       "previewUrl": "https://images.steamusercontent.com/ugc/10859106396673764060/A315BDDA951DA125DB01BBE0DF50182B01734E95/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792104577"
     },
     {
       "id": "3792811842",
       "title": "Wallpaper Engine",
-      "subscriptions": 2607,
+      "subscriptions": 2609,
       "previewUrl": "https://images.steamusercontent.com/ugc/18203176254922855527/82A528C1AB67B1FB9C03661784F90425023B5D54/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792811842"
     },
@@ -159,14 +159,14 @@
     {
       "id": "3785275303",
       "title": "Keystrokes",
-      "subscriptions": 911,
+      "subscriptions": 914,
       "previewUrl": "https://images.steamusercontent.com/ugc/15964681018894652936/B92CE3931F677DDE25D7F1F3F3B5892FC8729ED8/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3785275303"
     },
     {
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "subscriptions": 35370,
+      "subscriptions": 35465,
       "previewUrl": "https://images.steamusercontent.com/ugc/16352074707467153735/FAE4094CFF5942E1EC38FA692479CD557A713053/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -213,5 +213,5 @@
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3794649591"
     }
   ],
-  "updatedAt": "2026-10-04T02:14:45.817Z"
+  "updatedAt": "2026-10-04T11:47:48.657Z"
 }
