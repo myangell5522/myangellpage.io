@@ -1,23 +1,23 @@
 {
-  "total": 123627,
+  "total": 123673,
   "steam": {
     "ok": true,
-    "downloads": 41763
+    "downloads": 41791
   },
   "modrinth": {
     "ok": true,
-    "downloads": 26345
+    "downloads": 26352
   },
   "curseforge": {
     "ok": true,
-    "downloads": 55519
+    "downloads": 55530
   },
   "projects": [
     {
       "source": "curseforge",
       "id": "1430255",
       "title": "Exposure + Immersive Paintings",
-      "downloads": 42470,
+      "downloads": 42479,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1614/500/256/256/639040606607073315.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/exposure-immersive-paintings"
     },
@@ -25,7 +25,7 @@
       "source": "steam",
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "downloads": 35465,
+      "downloads": 35491,
       "previewUrl": "https://images.steamusercontent.com/ugc/16352074707467153735/FAE4094CFF5942E1EC38FA692479CD557A713053/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -33,7 +33,7 @@
       "source": "modrinth",
       "id": "sGvIum2l",
       "title": "Player Locator Reforged",
-      "downloads": 26345,
+      "downloads": 26352,
       "previewUrl": "https://cdn.modrinth.com/data/sGvIum2l/5e61a6defa1035d619217ed88766f5d7a8ca9a51.png",
       "url": "https://modrinth.com/mod/player-locator-plus-reforged"
     },
@@ -41,7 +41,7 @@
       "source": "curseforge",
       "id": "1423062",
       "title": "Quest Plague",
-      "downloads": 12719,
+      "downloads": 12721,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1600/231/256/256/639033968927424592.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/quest-plague"
     },
@@ -49,7 +49,7 @@
       "source": "steam",
       "id": "3792811842",
       "title": "Wallpaper Engine",
-      "downloads": 2609,
+      "downloads": 2610,
       "previewUrl": "https://images.steamusercontent.com/ugc/18203176254922855527/82A528C1AB67B1FB9C03661784F90425023B5D54/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792811842"
     },
@@ -73,7 +73,7 @@
       "source": "steam",
       "id": "3787224121",
       "title": "The End Of A Calamity",
-      "downloads": 765,
+      "downloads": 766,
       "previewUrl": "https://images.steamusercontent.com/ugc/16394421516552150902/DDAC1248100EBAEAD86032E914EA0152A08AF627/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3787224121"
     },
@@ -145,14 +145,14 @@
     {
       "id": "3792811842",
       "title": "Wallpaper Engine",
-      "subscriptions": 2609,
+      "subscriptions": 2610,
       "previewUrl": "https://images.steamusercontent.com/ugc/18203176254922855527/82A528C1AB67B1FB9C03661784F90425023B5D54/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792811842"
     },
     {
       "id": "3787224121",
       "title": "The End Of A Calamity",
-      "subscriptions": 765,
+      "subscriptions": 766,
       "previewUrl": "https://images.steamusercontent.com/ugc/16394421516552150902/DDAC1248100EBAEAD86032E914EA0152A08AF627/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3787224121"
     },
@@ -166,7 +166,7 @@
     {
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "subscriptions": 35465,
+      "subscriptions": 35491,
       "previewUrl": "https://images.steamusercontent.com/ugc/16352074707467153735/FAE4094CFF5942E1EC38FA692479CD557A713053/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -213,5 +213,17 @@
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3794649591"
     }
   ],
-  "updatedAt": "2026-10-04T11:47:48.657Z"
+  "discord": {
+    "ok": true,
+    "id": "844636528406822942",
+    "username": "danceq",
+    "globalName": "myangell | 我的天使",
+    "avatarUrl": "https://cdn.discordapp.com/avatars/844636528406822942/e5a97d88ed0dda2915b0d4c891b60c2d.png",
+    "decorationUrl": "https://cdn.discordapp.com/avatar-decoration-presets/a_8ffa2ba9bff18e96b76c2e66fd0d7fa3.png",
+    "badges": [
+      "HOUSE_BRAVERY"
+    ],
+    "nameplatePalette": "cobalt"
+  },
+  "updatedAt": "2026-10-04T13:13:45.390Z"
 }

@@ -131,6 +131,7 @@ async function loadStats() {
     }
 
     renderWorks(stats.projects || stats.steamItems || []);
+    renderDiscord(stats.discord);
   } catch {
     updated.textContent = "Не удалось загрузить счётчик";
     const status = document.querySelector("#works-status");
@@ -145,6 +146,104 @@ function labelCard(id, brand, value, one, few, many) {
     "aria-label",
     `${brand}, ${format(value)} ${plural(value, one, few, many)}`,
   );
+}
+
+const DISCORD_BADGES = {
+  HOUSE_BRAVERY: { label: "HypeSquad Bravery", color: "#9b84ee" },
+  HOUSE_BRILLIANCE: { label: "HypeSquad Brilliance", color: "#f47b67" },
+  HOUSE_BALANCE: { label: "HypeSquad Balance", color: "#45ddc0" },
+  HYPESQUAD: { label: "HypeSquad Events", color: "#f47b67" },
+  EARLY_SUPPORTER: { label: "Early Supporter", color: "#f47b67" },
+  ACTIVE_DEVELOPER: { label: "Active Developer", color: "#3ba55d" },
+  BUG_HUNTER_LEVEL_1: { label: "Bug Hunter", color: "#3ba55d" },
+  BUG_HUNTER_LEVEL_2: { label: "Bug Hunter", color: "#f0b232" },
+  PARTNER: { label: "Partner", color: "#5865f2" },
+  STAFF: { label: "Discord Staff", color: "#5865f2" },
+  CERTIFIED_MODERATOR: { label: "Moderator", color: "#5865f2" },
+  EARLY_VERIFIED_BOT_DEVELOPER: { label: "Early Verified Bot Developer", color: "#5865f2" },
+  NITRO: { label: "Nitro", color: "#ff73fa" },
+};
+
+const NAMEPLATES = {
+  cobalt: "rgba(71, 82, 196, 0.55)",
+  sky: "rgba(56, 160, 220, 0.45)",
+  teal: "rgba(26, 160, 150, 0.45)",
+  forest: "rgba(36, 128, 70, 0.45)",
+  berry: "rgba(180, 50, 110, 0.45)",
+  crimson: "rgba(170, 40, 50, 0.45)",
+};
+
+function renderDiscord(profile) {
+  const root = document.querySelector("#discord-preview");
+  if (!root) return;
+  if (!profile?.ok || !profile.globalName) {
+    root.hidden = true;
+    root.replaceChildren();
+    return;
+  }
+
+  const avatarWrap = document.createElement("span");
+  avatarWrap.className = "discord-avatar";
+  const photo = document.createElement("img");
+  photo.className = "discord-avatar__img";
+  photo.alt = "";
+  photo.src = safeHttps(profile.avatarUrl);
+  avatarWrap.append(photo);
+  const decoration = safeHttps(profile.decorationUrl);
+  if (decoration) {
+    const deco = document.createElement("img");
+    deco.className = "discord-avatar__deco";
+    deco.alt = "";
+    deco.src = decoration;
+    avatarWrap.append(deco);
+  }
+
+  const text = document.createElement("span");
+  text.className = "discord-preview__text";
+  const name = document.createElement("span");
+  name.className = "discord-preview__name";
+  name.textContent = profile.globalName;
+  const plate = NAMEPLATES[profile.nameplatePalette];
+  if (plate) name.style.background = `linear-gradient(90deg, transparent, ${plate}, transparent)`;
+  text.append(name);
+
+  const meta = document.createElement("span");
+  meta.className = "discord-preview__meta";
+  const user = document.createElement("span");
+  user.className = "discord-preview__user";
+  user.textContent = profile.username || "";
+  meta.append(user);
+  const badges = document.createElement("span");
+  badges.className = "discord-badges";
+  for (const flag of profile.badges || []) {
+    const badge = discordBadge(flag);
+    if (badge) badges.append(badge);
+  }
+  if (badges.childElementCount) meta.append(badges);
+  text.append(meta);
+
+  root.replaceChildren(avatarWrap, text);
+  root.hidden = false;
+}
+
+function discordBadge(flag) {
+  const info = DISCORD_BADGES[flag];
+  if (!info) return null;
+  const badge = document.createElement("span");
+  badge.className = "discord-badge";
+  badge.title = info.label;
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", "0 0 16 16");
+  svg.setAttribute("aria-hidden", "true");
+  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  path.setAttribute("fill", info.color);
+  path.setAttribute(
+    "d",
+    "M8 1.2 14.2 3.2v4.4c0 3.4-2.5 6.5-6.2 7.2C4.3 14.1 1.8 11 1.8 7.6V3.2L8 1.2z",
+  );
+  svg.append(path);
+  badge.append(svg);
+  return badge;
 }
 
 const SOURCE_ICONS = {

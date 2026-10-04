@@ -10,10 +10,11 @@ const UA = "myangellpage (https://github.com/myangell5522)";
 const sources = JSON.parse(await readFile(sourcesPath, "utf8"));
 const previous = await readPrevious();
 
-const [steam, modrinth, curseforge] = await Promise.all([
+const [steam, modrinth, curseforge, discord] = await Promise.all([
   fetchSteam(),
   fetchModrinth(),
   fetchCurseforge(),
+  fetchDiscord(),
 ]);
 
 const projects = [...steam.items, ...modrinth.items, ...curseforge.items].sort(
@@ -35,6 +36,7 @@ const next = {
   curseforge: { ok: curseforge.ok, downloads: curseforge.downloads },
   projects,
   steamItems,
+  discord,
 };
 
 if (!steam.ok && !modrinth.ok && !curseforge.ok && !previous) {
@@ -70,6 +72,7 @@ function withoutStamp(stats) {
     curseforge: stats.curseforge,
     projects: stats.projects,
     steamItems: stats.steamItems,
+    discord: stats.discord ?? null,
   };
 }
 
@@ -230,6 +233,42 @@ async function fetchModrinth() {
       items,
     };
   }
+}
+
+async function fetchDiscord() {
+  const fallback = previous?.discord?.ok ? previous.discord : { ok: false };
+  const id = String(sources.discordUserId || "");
+  if (!/^\d+$/.test(id)) return fallback;
+  try {
+    const payload = await getJson(`https://japi.rest/discord/v1/user/${id}`);
+    const data = payload?.data;
+    if (!data?.id) throw new Error("Unexpected Discord payload");
+    const asset = data.avatar_decoration_data?.asset;
+    const decoration = /^a?_[A-Za-z0-9]+$/.test(asset || "")
+      ? `https://cdn.discordapp.com/avatar-decoration-presets/${asset}.png`
+      : "";
+    return {
+      ok: true,
+      id: String(data.id),
+      username: data.username || "",
+      globalName: data.global_name || data.username || "",
+      avatarUrl: discordAvatar(data),
+      decorationUrl: decoration,
+      badges: Array.isArray(data.public_flags_array) ? data.public_flags_array.filter((flag) => typeof flag === "string") : [],
+      nameplatePalette: data.collectibles?.nameplate?.palette || "",
+    };
+  } catch (error) {
+    console.error(`Discord profile failed: ${error.message}`);
+    return fallback;
+  }
+}
+
+function discordAvatar(data) {
+  if (typeof data.avatarURL === "string" && data.avatarURL.startsWith("https://")) return data.avatarURL;
+  if (data.id && data.avatar) {
+    return `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png?size=128`;
+  }
+  return "";
 }
 
 async function fetchCurseforge() {
