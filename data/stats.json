@@ -1,8 +1,8 @@
 {
-  "total": 124286,
+  "total": 124320,
   "steam": {
     "ok": true,
-    "downloads": 42055
+    "downloads": 42057
   },
   "modrinth": {
     "ok": true,
@@ -12,13 +12,18 @@
     "ok": true,
     "downloads": 55768
   },
+  "nexus": {
+    "ok": true,
+    "downloads": 32
+  },
   "today": {
     "date": "2026-10-05",
     "base": {
-      "total": 123830,
+      "total": 123862,
       "steam": 41862,
       "modrinth": 26382,
-      "curseforge": 55586
+      "curseforge": 55586,
+      "nexus": 32
     }
   },
   "projects": [
@@ -34,7 +39,7 @@
       "source": "steam",
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "downloads": 35736,
+      "downloads": 35738,
       "previewUrl": "https://images.steamusercontent.com/ugc/16352074707467153735/FAE4094CFF5942E1EC38FA692479CD557A713053/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -141,6 +146,22 @@
       "downloads": 21,
       "previewUrl": "https://images.steamusercontent.com/ugc/58090453779583666/A9F370B25E714C109567459084E40139AD1601AD/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3456272360"
+    },
+    {
+      "source": "nexus",
+      "id": "827",
+      "title": "Auto Chips on any difficulty",
+      "downloads": 19,
+      "previewUrl": "https://staticdelivery.nexusmods.com/mods/1950/images/827/827-1791134211-1974139505.png",
+      "url": "https://www.nexusmods.com/nierautomata/mods/827"
+    },
+    {
+      "source": "nexus",
+      "id": "164213",
+      "title": "Meeko Summon - Teleportation Spell - RUS",
+      "downloads": 15,
+      "previewUrl": "https://staticdelivery.nexusmods.com/mods/1704/images/164213/164213-1762839692-960318692.jpg",
+      "url": "https://www.nexusmods.com/skyrimspecialedition/mods/164213"
     }
   ],
   "steamItems": [
@@ -175,7 +196,7 @@
     {
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "subscriptions": 35736,
+      "subscriptions": 35738,
       "previewUrl": "https://images.steamusercontent.com/ugc/16352074707467153735/FAE4094CFF5942E1EC38FA692479CD557A713053/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -324,5 +345,5 @@
       "hidden": true
     }
   ],
-  "updatedAt": "2026-10-05T17:56:53.450Z"
+  "updatedAt": "2026-10-05T18:09:56.838Z"
 }

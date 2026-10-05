@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>myangell</title>
-    <meta name="description" content="Загрузки модов и работ мастерской Steam, Modrinth и CurseForge.">
+    <meta name="description" content="Загрузки модов и работ мастерской Steam, Modrinth, CurseForge и Nexus Mods.">
     <meta name="theme-color" content="#0d1117">
-    <link rel="stylesheet" href="styles.css?v=7">
+    <link rel="stylesheet" href="styles.css?v=8">
   </head>
   <body>
     <main class="page">
@@ -23,7 +23,7 @@
             <span class="delta delta--total" data-delta="total" hidden></span>
           </p>
           <p id="updated" class="updated" aria-live="polite">Загрузка счётчика…</p>
-          <p class="note">В сумме Steam, Modrinth и CurseForge.</p>
+          <p class="note">В сумме Steam, Modrinth, CurseForge и Nexus Mods.</p>
         </div>
       </section>
 
@@ -52,6 +52,15 @@
             CurseForge
           </span>
           <span class="card__count"><span class="count" data-count="curseforge" aria-label="0">0</span><span class="delta" data-delta="curseforge" hidden></span></span>
+          <span class="card__hint">загрузки модов</span>
+        </a>
+
+        <a class="card card--stat" id="card-nexus" href="https://www.nexusmods.com/profile/myangell" target="_blank" rel="noopener noreferrer">
+          <span class="card__top">
+            <img class="icon" src="svg/nexus.svg" alt="">
+            Nexus
+          </span>
+          <span class="card__count"><span class="count" data-count="nexus" aria-label="0">0</span><span class="delta" data-delta="nexus" hidden></span></span>
           <span class="card__hint">загрузки модов</span>
         </a>
 
@@ -132,6 +141,6 @@
         </aside>
       </section>
     </main>
-    <script src="app.js?v=7"></script>
+    <script src="app.js?v=8"></script>
   </body>
 </html>

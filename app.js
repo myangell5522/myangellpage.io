@@ -6,6 +6,7 @@ const countEls = {
   steam: document.querySelector('[data-count="steam"]'),
   modrinth: document.querySelector('[data-count="modrinth"]'),
   curseforge: document.querySelector('[data-count="curseforge"]'),
+  nexus: document.querySelector('[data-count="nexus"]'),
 };
 
 function format(value) {
@@ -98,6 +99,7 @@ function renderDeltas(stats) {
     steam: stats.steam?.downloads ?? 0,
     modrinth: stats.modrinth?.downloads ?? 0,
     curseforge: stats.curseforge?.downloads ?? 0,
+    nexus: stats.nexus?.downloads ?? 0,
   };
   document.querySelectorAll("[data-delta]").forEach((el) => {
     const key = el.dataset.delta;
@@ -123,17 +125,20 @@ async function loadStats() {
     const steam = stats.steam?.downloads ?? 0;
     const modrinth = stats.modrinth?.downloads ?? 0;
     const curseforge = stats.curseforge?.downloads ?? 0;
-    const total = stats.total ?? steam + modrinth + curseforge;
+    const nexus = stats.nexus?.downloads ?? 0;
+    const total = stats.total ?? steam + modrinth + curseforge + nexus;
 
     totalEl.classList.add("is-live");
     animateCount(totalEl, total);
     animateCount(countEls.steam, steam);
     animateCount(countEls.modrinth, modrinth);
     animateCount(countEls.curseforge, curseforge);
+    animateCount(countEls.nexus, nexus);
 
     labelCard("card-steam", "Steam", steam, "загрузка", "загрузки", "загрузок");
     labelCard("card-modrinth", "Modrinth", modrinth, "загрузка", "загрузки", "загрузок");
     labelCard("card-curseforge", "CurseForge", curseforge, "загрузка", "загрузки", "загрузок");
+    labelCard("card-nexus", "Nexus", nexus, "загрузка", "загрузки", "загрузок");
 
     if (stats.updatedAt) {
       const when = new Intl.DateTimeFormat("ru-RU", {
@@ -261,6 +266,7 @@ const SOURCE_ICONS = {
   steam: "svg/steam.svg",
   modrinth: "svg/modrinth.svg",
   curseforge: "svg/curseforge.svg",
+  nexus: "svg/nexus.svg",
 };
 
 function renderWorks(items) {

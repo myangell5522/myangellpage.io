@@ -40,16 +40,17 @@ const GITHUB_HEADERS = {
   ...(process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {}),
 };
 
-const [steam, modrinth, curseforge, discord, github, active] = await Promise.all([
+const [steam, modrinth, curseforge, nexus, discord, github, active] = await Promise.all([
   fetchSteam(),
   fetchModrinth(),
   fetchCurseforge(),
+  fetchNexus(),
   fetchDiscord(),
   fetchGithubProfile(),
   fetchActiveRepos(),
 ]);
 
-const projects = [...steam.items, ...modrinth.items, ...curseforge.items].sort(
+const projects = [...steam.items, ...modrinth.items, ...curseforge.items, ...nexus.items].sort(
   (a, b) => b.downloads - a.downloads || a.title.localeCompare(b.title, "ru"),
 );
 
@@ -61,13 +62,14 @@ const steamItems = steam.items.map((item) => ({
   url: item.url,
 }));
 
-const total = steam.downloads + modrinth.downloads + curseforge.downloads;
+const total = steam.downloads + modrinth.downloads + curseforge.downloads + nexus.downloads;
 
 const next = {
   total,
   steam: { ok: steam.ok, downloads: steam.downloads },
   modrinth: { ok: modrinth.ok, downloads: modrinth.downloads },
   curseforge: { ok: curseforge.ok, downloads: curseforge.downloads },
+  nexus: { ok: nexus.ok, downloads: nexus.downloads },
   today: dailyBase(),
   projects,
   steamItems,
@@ -76,7 +78,7 @@ const next = {
   active,
 };
 
-if (!steam.ok && !modrinth.ok && !curseforge.ok && !previous) {
+if (!steam.ok && !modrinth.ok && !curseforge.ok && !nexus.ok && !previous) {
   console.error("All sources failed and there is no previous stats.json");
   process.exit(1);
 }
@@ -94,7 +96,7 @@ console.log(summary(next));
 
 function summary(stats) {
   const count = Array.isArray(stats.projects) ? stats.projects.length : 0;
-  return `total=${stats.total} steam=${stats.steam.downloads} modrinth=${stats.modrinth.downloads} curseforge=${stats.curseforge.downloads} projects=${count}`;
+  return `total=${stats.total} steam=${stats.steam.downloads} modrinth=${stats.modrinth.downloads} curseforge=${stats.curseforge.downloads} nexus=${stats.nexus?.downloads ?? 0} projects=${count}`;
 }
 
 function sameNumbers(left, right) {
@@ -107,6 +109,7 @@ function withoutStamp(stats) {
     steam: stats.steam,
     modrinth: stats.modrinth,
     curseforge: stats.curseforge,
+    nexus: stats.nexus ?? null,
     today: stats.today ?? null,
     projects: stats.projects,
     steamItems: stats.steamItems,
@@ -127,22 +130,25 @@ function moscowDate(date) {
 
 function dailyBase() {
   const date = moscowDate(new Date());
-  if (previous?.today?.date === date && previous.today.base) return previous.today;
-  const source = previous || {
-    total,
-    steam: { downloads: steam.downloads },
-    modrinth: { downloads: modrinth.downloads },
-    curseforge: { downloads: curseforge.downloads },
-  };
-  return {
-    date,
-    base: {
-      total: Number(source.total) || 0,
-      steam: Number(source.steam?.downloads) || 0,
-      modrinth: Number(source.modrinth?.downloads) || 0,
-      curseforge: Number(source.curseforge?.downloads) || 0,
-    },
-  };
+  const sameDay = previous?.today?.date === date && previous.today.base;
+  if (sameDay && Number.isFinite(previous.today.base.nexus)) return previous.today;
+
+  const storedNexus = previous?.nexus?.downloads;
+  const base = sameDay
+    ? { ...previous.today.base }
+    : {
+        total: Number(previous?.total ?? total) || 0,
+        steam: Number(previous?.steam?.downloads ?? steam.downloads) || 0,
+        modrinth: Number(previous?.modrinth?.downloads ?? modrinth.downloads) || 0,
+        curseforge: Number(previous?.curseforge?.downloads ?? curseforge.downloads) || 0,
+        ...(Number.isFinite(storedNexus) ? { nexus: storedNexus } : {}),
+      };
+
+  if (!Number.isFinite(base.nexus)) {
+    base.nexus = nexus.downloads;
+    base.total += nexus.downloads;
+  }
+  return { date, base };
 }
 
 async function fetchGithubProfile() {
@@ -436,6 +442,75 @@ function discordAvatar(data) {
     return `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png?size=128`;
   }
   return "";
+}
+
+async function fetchNexus() {
+  const itemsFallback = previousProjects("nexus");
+  const fallback = {
+    ok: false,
+    downloads: previous?.nexus?.downloads ?? itemsFallback.reduce((sum, item) => sum + item.downloads, 0),
+    items: itemsFallback,
+  };
+  const memberId = String(sources.nexusMemberId || "");
+  const name = String(sources.nexusUser || "").replace(/[^A-Za-z0-9_-]/g, "");
+  if (!/^\d+$/.test(memberId) || !name) return fallback;
+  try {
+    const nodes = [];
+    let totalCount = Infinity;
+    for (let offset = 0; nodes.length < totalCount && offset < 500; offset += 100) {
+      const payload = await getJson("https://api.nexusmods.com/v2/graphql", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          query: `{
+            user: userByName(name: "${name}") { uniqueModDownloads }
+            mods(filter: { uploaderId: { value: "${memberId}", op: EQUALS } }, count: 100, offset: ${offset}) {
+              totalCount
+              nodes { modId name downloads pictureUrl game { domainName } }
+            }
+          }`,
+        }),
+      });
+      if (payload.errors?.length) throw new Error(payload.errors.map((error) => error.message).join("; "));
+      const page = payload.data?.mods;
+      const batch = Array.isArray(page?.nodes) ? page.nodes : [];
+      totalCount = Number(page?.totalCount) || batch.length;
+      nodes.push(...batch);
+      if (!offset) payload._user = payload.data?.user;
+      if (batch.length < 100) {
+        payload._user = payload.data?.user;
+        const items = nexusItems(nodes);
+        const unique = Number(payload.data?.user?.uniqueModDownloads);
+        return {
+          ok: true,
+          downloads: Number.isFinite(unique) ? unique : items.reduce((sum, item) => sum + item.downloads, 0),
+          items,
+        };
+      }
+    }
+    const items = nexusItems(nodes);
+    return {
+      ok: true,
+      downloads: items.reduce((sum, item) => sum + item.downloads, 0),
+      items,
+    };
+  } catch (error) {
+    console.error(`Nexus failed: ${error.message}`);
+    return fallback;
+  }
+}
+
+function nexusItems(nodes) {
+  return nodes
+    .filter((mod) => mod?.modId && /^[a-z0-9]+$/.test(mod.game?.domainName || ""))
+    .map((mod) => ({
+      source: "nexus",
+      id: String(mod.modId),
+      title: mod.name || String(mod.modId),
+      downloads: Number(mod.downloads) || 0,
+      previewUrl: typeof mod.pictureUrl === "string" ? mod.pictureUrl : "",
+      url: `https://www.nexusmods.com/${mod.game.domainName}/mods/${mod.modId}`,
+    }));
 }
 
 async function fetchCurseforge() {
