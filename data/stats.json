@@ -1,20 +1,20 @@
 {
-  "total": 124419,
+  "total": 124514,
   "steam": {
     "ok": true,
-    "downloads": 42094
+    "downloads": 42114
   },
   "modrinth": {
     "ok": true,
-    "downloads": 26479
+    "downloads": 26495
   },
   "curseforge": {
     "ok": true,
-    "downloads": 55812
+    "downloads": 55869
   },
   "nexus": {
     "ok": true,
-    "downloads": 34
+    "downloads": 36
   },
   "today": {
     "date": "2026-10-06",
@@ -31,7 +31,7 @@
       "source": "curseforge",
       "id": "1430255",
       "title": "Exposure + Immersive Paintings",
-      "downloads": 42655,
+      "downloads": 42689,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1614/500/256/256/639040606607073315.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/exposure-immersive-paintings"
     },
@@ -39,7 +39,7 @@
       "source": "steam",
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "downloads": 35771,
+      "downloads": 35790,
       "previewUrl": "https://images.steamusercontent.com/ugc/16352074707467153735/FAE4094CFF5942E1EC38FA692479CD557A713053/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -47,7 +47,7 @@
       "source": "modrinth",
       "id": "sGvIum2l",
       "title": "Player Locator Reforged",
-      "downloads": 26479,
+      "downloads": 26495,
       "previewUrl": "https://cdn.modrinth.com/data/sGvIum2l/5e61a6defa1035d619217ed88766f5d7a8ca9a51.png",
       "url": "https://modrinth.com/mod/player-locator-plus-reforged"
     },
@@ -55,7 +55,7 @@
       "source": "curseforge",
       "id": "1423062",
       "title": "Quest Plague",
-      "downloads": 12824,
+      "downloads": 12847,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1600/231/256/256/639033968927424592.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/quest-plague"
     },
@@ -71,7 +71,7 @@
       "source": "steam",
       "id": "3792104577",
       "title": "Terraria Bounce",
-      "downloads": 1284,
+      "downloads": 1285,
       "previewUrl": "https://images.steamusercontent.com/ugc/10859106396673764060/A315BDDA951DA125DB01BBE0DF50182B01734E95/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792104577"
     },
@@ -140,20 +140,20 @@
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3456256099"
     },
     {
+      "source": "nexus",
+      "id": "827",
+      "title": "Auto Chips on any difficulty",
+      "downloads": 25,
+      "previewUrl": "https://staticdelivery.nexusmods.com/mods/1950/images/827/827-1791134211-1974139505.png",
+      "url": "https://www.nexusmods.com/nierautomata/mods/827"
+    },
+    {
       "source": "steam",
       "id": "3456272360",
       "title": "«Камелия (Wuthering Waves)»",
       "downloads": 21,
       "previewUrl": "https://images.steamusercontent.com/ugc/58090453779583666/A9F370B25E714C109567459084E40139AD1601AD/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3456272360"
-    },
-    {
-      "source": "nexus",
-      "id": "827",
-      "title": "Auto Chips on any difficulty",
-      "downloads": 21,
-      "previewUrl": "https://staticdelivery.nexusmods.com/mods/1950/images/827/827-1791134211-1974139505.png",
-      "url": "https://www.nexusmods.com/nierautomata/mods/827"
     },
     {
       "source": "nexus",
@@ -168,7 +168,7 @@
     {
       "id": "3792104577",
       "title": "Terraria Bounce",
-      "subscriptions": 1284,
+      "subscriptions": 1285,
       "previewUrl": "https://images.steamusercontent.com/ugc/10859106396673764060/A315BDDA951DA125DB01BBE0DF50182B01734E95/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792104577"
     },
@@ -196,7 +196,7 @@
     {
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "subscriptions": 35771,
+      "subscriptions": 35790,
       "previewUrl": "https://images.steamusercontent.com/ugc/16352074707467153735/FAE4094CFF5942E1EC38FA692479CD557A713053/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -345,5 +345,5 @@
       "hidden": true
     }
   ],
-  "updatedAt": "2026-10-05T23:53:37.432Z"
+  "updatedAt": "2026-10-06T05:05:10.552Z"
 }
