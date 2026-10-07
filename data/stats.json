@@ -1,29 +1,29 @@
 {
-  "total": 125227,
+  "total": 125367,
   "steam": {
     "ok": true,
-    "downloads": 42354
+    "downloads": 42404
   },
   "modrinth": {
     "ok": true,
-    "downloads": 26673
+    "downloads": 26699
   },
   "curseforge": {
     "ok": true,
-    "downloads": 56151
+    "downloads": 56213
   },
   "nexus": {
     "ok": true,
-    "downloads": 49
+    "downloads": 51
   },
   "today": {
-    "date": "2026-10-07",
+    "date": "2026-10-08",
     "base": {
-      "total": 124811,
-      "steam": 42217,
-      "modrinth": 26575,
-      "curseforge": 55982,
-      "nexus": 37
+      "total": 125227,
+      "steam": 42354,
+      "modrinth": 26673,
+      "curseforge": 56151,
+      "nexus": 49
     }
   },
   "projects": [
@@ -31,7 +31,7 @@
       "source": "curseforge",
       "id": "1430255",
       "title": "Exposure + Immersive Paintings",
-      "downloads": 42866,
+      "downloads": 42894,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1614/500/256/256/639040606607073315.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/exposure-immersive-paintings"
     },
@@ -39,7 +39,7 @@
       "source": "steam",
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "downloads": 36018,
+      "downloads": 36064,
       "previewUrl": "https://images.steamusercontent.com/ugc/16352074707467153735/FAE4094CFF5942E1EC38FA692479CD557A713053/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -47,7 +47,7 @@
       "source": "modrinth",
       "id": "sGvIum2l",
       "title": "Player Locator Reforged",
-      "downloads": 26673,
+      "downloads": 26699,
       "previewUrl": "https://cdn.modrinth.com/data/sGvIum2l/5e61a6defa1035d619217ed88766f5d7a8ca9a51.png",
       "url": "https://modrinth.com/mod/player-locator-plus-reforged"
     },
@@ -55,7 +55,7 @@
       "source": "curseforge",
       "id": "1423062",
       "title": "Quest Plague",
-      "downloads": 12951,
+      "downloads": 12985,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1600/231/256/256/639033968927424592.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/quest-plague"
     },
@@ -63,7 +63,7 @@
       "source": "steam",
       "id": "3792811842",
       "title": "Wallpaper Engine",
-      "downloads": 2612,
+      "downloads": 2614,
       "previewUrl": "https://images.steamusercontent.com/ugc/18203176254922855527/82A528C1AB67B1FB9C03661784F90425023B5D54/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792811842"
     },
@@ -71,7 +71,7 @@
       "source": "steam",
       "id": "3792104577",
       "title": "Terraria Bounce",
-      "downloads": 1287,
+      "downloads": 1288,
       "previewUrl": "https://images.steamusercontent.com/ugc/10859106396673764060/A315BDDA951DA125DB01BBE0DF50182B01734E95/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792104577"
     },
@@ -87,7 +87,7 @@
       "source": "steam",
       "id": "3787224121",
       "title": "The End Of A Calamity",
-      "downloads": 781,
+      "downloads": 782,
       "previewUrl": "https://images.steamusercontent.com/ugc/16394421516552150902/DDAC1248100EBAEAD86032E914EA0152A08AF627/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3787224121"
     },
@@ -143,7 +143,7 @@
       "source": "nexus",
       "id": "827",
       "title": "Auto Chips on any difficulty",
-      "downloads": 45,
+      "downloads": 47,
       "previewUrl": "https://staticdelivery.nexusmods.com/mods/1950/images/827/827-1791317121-1006175233.png",
       "url": "https://www.nexusmods.com/nierautomata/mods/827"
     },
@@ -168,21 +168,21 @@
     {
       "id": "3792104577",
       "title": "Terraria Bounce",
-      "subscriptions": 1287,
+      "subscriptions": 1288,
       "previewUrl": "https://images.steamusercontent.com/ugc/10859106396673764060/A315BDDA951DA125DB01BBE0DF50182B01734E95/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792104577"
     },
     {
       "id": "3792811842",
       "title": "Wallpaper Engine",
-      "subscriptions": 2612,
+      "subscriptions": 2614,
       "previewUrl": "https://images.steamusercontent.com/ugc/18203176254922855527/82A528C1AB67B1FB9C03661784F90425023B5D54/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792811842"
     },
     {
       "id": "3787224121",
       "title": "The End Of A Calamity",
-      "subscriptions": 781,
+      "subscriptions": 782,
       "previewUrl": "https://images.steamusercontent.com/ugc/16394421516552150902/DDAC1248100EBAEAD86032E914EA0152A08AF627/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3787224121"
     },
@@ -196,7 +196,7 @@
     {
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "subscriptions": 36018,
+      "subscriptions": 36064,
       "previewUrl": "https://images.steamusercontent.com/ugc/16352074707467153735/FAE4094CFF5942E1EC38FA692479CD557A713053/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -345,5 +345,5 @@
       "hidden": true
     }
   ],
-  "updatedAt": "2026-10-07T17:17:31.520Z"
+  "updatedAt": "2026-10-07T22:46:54.247Z"
 }
