@@ -1,20 +1,20 @@
 {
-  "total": 125534,
+  "total": 125684,
   "steam": {
     "ok": true,
-    "downloads": 42455
+    "downloads": 42513
   },
   "modrinth": {
     "ok": true,
-    "downloads": 26761
+    "downloads": 26787
   },
   "curseforge": {
     "ok": true,
-    "downloads": 56267
+    "downloads": 56332
   },
   "nexus": {
     "ok": true,
-    "downloads": 51
+    "downloads": 52
   },
   "today": {
     "date": "2026-10-08",
@@ -31,7 +31,7 @@
       "source": "curseforge",
       "id": "1430255",
       "title": "Exposure + Immersive Paintings",
-      "downloads": 42931,
+      "downloads": 42979,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1614/500/256/256/639040606607073315.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/exposure-immersive-paintings"
     },
@@ -39,7 +39,7 @@
       "source": "steam",
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "downloads": 36108,
+      "downloads": 36164,
       "previewUrl": "https://images.steamusercontent.com/ugc/16352074707467153735/FAE4094CFF5942E1EC38FA692479CD557A713053/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -47,7 +47,7 @@
       "source": "modrinth",
       "id": "sGvIum2l",
       "title": "Player Locator Reforged",
-      "downloads": 26761,
+      "downloads": 26787,
       "previewUrl": "https://cdn.modrinth.com/data/sGvIum2l/5e61a6defa1035d619217ed88766f5d7a8ca9a51.png",
       "url": "https://modrinth.com/mod/player-locator-plus-reforged"
     },
@@ -55,7 +55,7 @@
       "source": "curseforge",
       "id": "1423062",
       "title": "Quest Plague",
-      "downloads": 13002,
+      "downloads": 13019,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1600/231/256/256/639033968927424592.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/quest-plague"
     },
@@ -63,7 +63,7 @@
       "source": "steam",
       "id": "3792811842",
       "title": "Wallpaper Engine",
-      "downloads": 2616,
+      "downloads": 2617,
       "previewUrl": "https://images.steamusercontent.com/ugc/18203176254922855527/82A528C1AB67B1FB9C03661784F90425023B5D54/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792811842"
     },
@@ -71,7 +71,7 @@
       "source": "steam",
       "id": "3792104577",
       "title": "Terraria Bounce",
-      "downloads": 1289,
+      "downloads": 1290,
       "previewUrl": "https://images.steamusercontent.com/ugc/10859106396673764060/A315BDDA951DA125DB01BBE0DF50182B01734E95/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792104577"
     },
@@ -79,7 +79,7 @@
       "source": "steam",
       "id": "3785275303",
       "title": "Keystrokes",
-      "downloads": 920,
+      "downloads": 919,
       "previewUrl": "https://images.steamusercontent.com/ugc/15964681018894652936/B92CE3931F677DDE25D7F1F3F3B5892FC8729ED8/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3785275303"
     },
@@ -87,7 +87,7 @@
       "source": "steam",
       "id": "3787224121",
       "title": "The End Of A Calamity",
-      "downloads": 785,
+      "downloads": 786,
       "previewUrl": "https://images.steamusercontent.com/ugc/16394421516552150902/DDAC1248100EBAEAD86032E914EA0152A08AF627/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3787224121"
     },
@@ -132,20 +132,20 @@
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3456277123"
     },
     {
-      "source": "nexus",
-      "id": "827",
-      "title": "Auto Chips on any difficulty",
-      "downloads": 50,
-      "previewUrl": "https://staticdelivery.nexusmods.com/mods/1950/images/827/827-1791317121-1006175233.png",
-      "url": "https://www.nexusmods.com/nierautomata/mods/827"
-    },
-    {
       "source": "steam",
       "id": "3456256099",
       "title": "Minecraft Enchanted Netherite Sword",
       "downloads": 49,
       "previewUrl": "https://images.steamusercontent.com/ugc/58090453779424281/3D0481F846D46ED413D1EE65ACBC7DDB0F49CFDA/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3456256099"
+    },
+    {
+      "source": "nexus",
+      "id": "827",
+      "title": "Auto Chips on any difficulty",
+      "downloads": 48,
+      "previewUrl": "https://staticdelivery.nexusmods.com/mods/1950/images/827/827-1791317121-1006175233.png",
+      "url": "https://www.nexusmods.com/nierautomata/mods/827"
     },
     {
       "source": "steam",
@@ -168,35 +168,35 @@
     {
       "id": "3792104577",
       "title": "Terraria Bounce",
-      "subscriptions": 1289,
+      "subscriptions": 1290,
       "previewUrl": "https://images.steamusercontent.com/ugc/10859106396673764060/A315BDDA951DA125DB01BBE0DF50182B01734E95/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792104577"
     },
     {
       "id": "3792811842",
       "title": "Wallpaper Engine",
-      "subscriptions": 2616,
+      "subscriptions": 2617,
       "previewUrl": "https://images.steamusercontent.com/ugc/18203176254922855527/82A528C1AB67B1FB9C03661784F90425023B5D54/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792811842"
     },
     {
       "id": "3787224121",
       "title": "The End Of A Calamity",
-      "subscriptions": 785,
+      "subscriptions": 786,
       "previewUrl": "https://images.steamusercontent.com/ugc/16394421516552150902/DDAC1248100EBAEAD86032E914EA0152A08AF627/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3787224121"
     },
     {
       "id": "3785275303",
       "title": "Keystrokes",
-      "subscriptions": 920,
+      "subscriptions": 919,
       "previewUrl": "https://images.steamusercontent.com/ugc/15964681018894652936/B92CE3931F677DDE25D7F1F3F3B5892FC8729ED8/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3785275303"
     },
     {
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "subscriptions": 36108,
+      "subscriptions": 36164,
       "previewUrl": "https://images.steamusercontent.com/ugc/16352074707467153735/FAE4094CFF5942E1EC38FA692479CD557A713053/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -345,5 +345,5 @@
       "hidden": true
     }
   ],
-  "updatedAt": "2026-10-08T10:04:17.581Z"
+  "updatedAt": "2026-10-08T17:44:20.535Z"
 }
