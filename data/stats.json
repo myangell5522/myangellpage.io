@@ -1,20 +1,20 @@
 {
-  "total": 126716,
+  "total": 126853,
   "steam": {
     "ok": true,
-    "downloads": 42869
+    "downloads": 42917
   },
   "modrinth": {
     "ok": true,
-    "downloads": 27081
+    "downloads": 27123
   },
   "curseforge": {
     "ok": true,
-    "downloads": 56700
+    "downloads": 56746
   },
   "nexus": {
     "ok": true,
-    "downloads": 66
+    "downloads": 67
   },
   "today": {
     "date": "2026-10-10",
@@ -31,7 +31,7 @@
       "source": "curseforge",
       "id": "1430255",
       "title": "Exposure + Immersive Paintings",
-      "downloads": 43225,
+      "downloads": 43257,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1614/500/256/256/639040606607073315.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/exposure-immersive-paintings"
     },
@@ -39,7 +39,7 @@
       "source": "steam",
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "downloads": 36503,
+      "downloads": 36546,
       "previewUrl": "https://images.steamusercontent.com/ugc/16352074707467153735/FAE4094CFF5942E1EC38FA692479CD557A713053/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -47,7 +47,7 @@
       "source": "modrinth",
       "id": "sGvIum2l",
       "title": "Player Locator Reforged",
-      "downloads": 27081,
+      "downloads": 27123,
       "previewUrl": "https://cdn.modrinth.com/data/sGvIum2l/5e61a6defa1035d619217ed88766f5d7a8ca9a51.png",
       "url": "https://modrinth.com/mod/player-locator-plus-reforged"
     },
@@ -55,7 +55,7 @@
       "source": "curseforge",
       "id": "1423062",
       "title": "Quest Plague",
-      "downloads": 13138,
+      "downloads": 13152,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1600/231/256/256/639033968927424592.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/quest-plague"
     },
@@ -71,7 +71,7 @@
       "source": "steam",
       "id": "3792104577",
       "title": "Terraria Bounce",
-      "downloads": 1291,
+      "downloads": 1292,
       "previewUrl": "https://images.steamusercontent.com/ugc/10859106396673764060/A315BDDA951DA125DB01BBE0DF50182B01734E95/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792104577"
     },
@@ -87,7 +87,7 @@
       "source": "steam",
       "id": "3787224121",
       "title": "The End Of A Calamity",
-      "downloads": 790,
+      "downloads": 792,
       "previewUrl": "https://images.steamusercontent.com/ugc/16394421516552150902/DDAC1248100EBAEAD86032E914EA0152A08AF627/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3787224121"
     },
@@ -111,7 +111,7 @@
       "source": "steam",
       "id": "3794649591",
       "title": "Swap My Audio!",
-      "downloads": 98,
+      "downloads": 100,
       "previewUrl": "https://images.steamusercontent.com/ugc/17918049774901576026/28C455F4CB188598209A74B1D47A688DA6FA7D9B/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3794649591"
     },
@@ -127,7 +127,7 @@
       "source": "nexus",
       "id": "827",
       "title": "Auto Chips on any difficulty",
-      "downloads": 63,
+      "downloads": 65,
       "previewUrl": "https://staticdelivery.nexusmods.com/mods/1950/images/827/827-1791317121-1006175233.png",
       "url": "https://www.nexusmods.com/nierautomata/mods/827"
     },
@@ -168,7 +168,7 @@
     {
       "id": "3792104577",
       "title": "Terraria Bounce",
-      "subscriptions": 1291,
+      "subscriptions": 1292,
       "previewUrl": "https://images.steamusercontent.com/ugc/10859106396673764060/A315BDDA951DA125DB01BBE0DF50182B01734E95/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792104577"
     },
@@ -182,7 +182,7 @@
     {
       "id": "3787224121",
       "title": "The End Of A Calamity",
-      "subscriptions": 790,
+      "subscriptions": 792,
       "previewUrl": "https://images.steamusercontent.com/ugc/16394421516552150902/DDAC1248100EBAEAD86032E914EA0152A08AF627/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3787224121"
     },
@@ -196,7 +196,7 @@
     {
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "subscriptions": 36503,
+      "subscriptions": 36546,
       "previewUrl": "https://images.steamusercontent.com/ugc/16352074707467153735/FAE4094CFF5942E1EC38FA692479CD557A713053/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -238,7 +238,7 @@
     {
       "id": "3794649591",
       "title": "Swap My Audio!",
-      "subscriptions": 98,
+      "subscriptions": 100,
       "previewUrl": "https://images.steamusercontent.com/ugc/17918049774901576026/28C455F4CB188598209A74B1D47A688DA6FA7D9B/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3794649591"
     }
@@ -345,5 +345,5 @@
       "hidden": true
     }
   ],
-  "updatedAt": "2026-10-10T15:44:09.603Z"
+  "updatedAt": "2026-10-10T19:47:58.425Z"
 }
