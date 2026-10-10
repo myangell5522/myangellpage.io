@@ -1,20 +1,20 @@
 {
-  "total": 126287,
+  "total": 126477,
   "steam": {
     "ok": true,
-    "downloads": 42709
+    "downloads": 42775
   },
   "modrinth": {
     "ok": true,
-    "downloads": 26957
+    "downloads": 27019
   },
   "curseforge": {
     "ok": true,
-    "downloads": 56560
+    "downloads": 56621
   },
   "nexus": {
     "ok": true,
-    "downloads": 61
+    "downloads": 62
   },
   "today": {
     "date": "2026-10-10",
@@ -31,7 +31,7 @@
       "source": "curseforge",
       "id": "1430255",
       "title": "Exposure + Immersive Paintings",
-      "downloads": 43130,
+      "downloads": 43166,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1614/500/256/256/639040606607073315.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/exposure-immersive-paintings"
     },
@@ -39,7 +39,7 @@
       "source": "steam",
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "downloads": 36355,
+      "downloads": 36417,
       "previewUrl": "https://images.steamusercontent.com/ugc/16352074707467153735/FAE4094CFF5942E1EC38FA692479CD557A713053/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -47,7 +47,7 @@
       "source": "modrinth",
       "id": "sGvIum2l",
       "title": "Player Locator Reforged",
-      "downloads": 26957,
+      "downloads": 27019,
       "previewUrl": "https://cdn.modrinth.com/data/sGvIum2l/5e61a6defa1035d619217ed88766f5d7a8ca9a51.png",
       "url": "https://modrinth.com/mod/player-locator-plus-reforged"
     },
@@ -55,7 +55,7 @@
       "source": "curseforge",
       "id": "1423062",
       "title": "Quest Plague",
-      "downloads": 13093,
+      "downloads": 13118,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1600/231/256/256/639033968927424592.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/quest-plague"
     },
@@ -71,7 +71,7 @@
       "source": "steam",
       "id": "3792104577",
       "title": "Terraria Bounce",
-      "downloads": 1287,
+      "downloads": 1289,
       "previewUrl": "https://images.steamusercontent.com/ugc/10859106396673764060/A315BDDA951DA125DB01BBE0DF50182B01734E95/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792104577"
     },
@@ -79,7 +79,7 @@
       "source": "steam",
       "id": "3785275303",
       "title": "Keystrokes",
-      "downloads": 920,
+      "downloads": 921,
       "previewUrl": "https://images.steamusercontent.com/ugc/15964681018894652936/B92CE3931F677DDE25D7F1F3F3B5892FC8729ED8/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3785275303"
     },
@@ -111,7 +111,7 @@
       "source": "steam",
       "id": "3794649591",
       "title": "Swap My Audio!",
-      "downloads": 96,
+      "downloads": 97,
       "previewUrl": "https://images.steamusercontent.com/ugc/17918049774901576026/28C455F4CB188598209A74B1D47A688DA6FA7D9B/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3794649591"
     },
@@ -168,7 +168,7 @@
     {
       "id": "3792104577",
       "title": "Terraria Bounce",
-      "subscriptions": 1287,
+      "subscriptions": 1289,
       "previewUrl": "https://images.steamusercontent.com/ugc/10859106396673764060/A315BDDA951DA125DB01BBE0DF50182B01734E95/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792104577"
     },
@@ -189,14 +189,14 @@
     {
       "id": "3785275303",
       "title": "Keystrokes",
-      "subscriptions": 920,
+      "subscriptions": 921,
       "previewUrl": "https://images.steamusercontent.com/ugc/15964681018894652936/B92CE3931F677DDE25D7F1F3F3B5892FC8729ED8/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3785275303"
     },
     {
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "subscriptions": 36355,
+      "subscriptions": 36417,
       "previewUrl": "https://images.steamusercontent.com/ugc/16352074707467153735/FAE4094CFF5942E1EC38FA692479CD557A713053/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -238,7 +238,7 @@
     {
       "id": "3794649591",
       "title": "Swap My Audio!",
-      "subscriptions": 96,
+      "subscriptions": 97,
       "previewUrl": "https://images.steamusercontent.com/ugc/17918049774901576026/28C455F4CB188598209A74B1D47A688DA6FA7D9B/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3794649591"
     }
@@ -345,5 +345,5 @@
       "hidden": true
     }
   ],
-  "updatedAt": "2026-10-10T02:06:53.513Z"
+  "updatedAt": "2026-10-10T09:28:03.674Z"
 }
