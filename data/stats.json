@@ -1,16 +1,16 @@
 {
-  "total": 126928,
+  "total": 127060,
   "steam": {
     "ok": true,
-    "downloads": 42947
+    "downloads": 42984
   },
   "modrinth": {
     "ok": true,
-    "downloads": 27135
+    "downloads": 27177
   },
   "curseforge": {
     "ok": true,
-    "downloads": 56778
+    "downloads": 56831
   },
   "nexus": {
     "ok": true,
@@ -31,7 +31,7 @@
       "source": "curseforge",
       "id": "1430255",
       "title": "Exposure + Immersive Paintings",
-      "downloads": 43273,
+      "downloads": 43314,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1614/500/256/256/639040606607073315.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/exposure-immersive-paintings"
     },
@@ -39,7 +39,7 @@
       "source": "steam",
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "downloads": 36575,
+      "downloads": 36610,
       "previewUrl": "https://images.steamusercontent.com/ugc/16352074707467153735/FAE4094CFF5942E1EC38FA692479CD557A713053/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -47,7 +47,7 @@
       "source": "modrinth",
       "id": "sGvIum2l",
       "title": "Player Locator Reforged",
-      "downloads": 27135,
+      "downloads": 27177,
       "previewUrl": "https://cdn.modrinth.com/data/sGvIum2l/5e61a6defa1035d619217ed88766f5d7a8ca9a51.png",
       "url": "https://modrinth.com/mod/player-locator-plus-reforged"
     },
@@ -55,7 +55,7 @@
       "source": "curseforge",
       "id": "1423062",
       "title": "Quest Plague",
-      "downloads": 13168,
+      "downloads": 13179,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1600/231/256/256/639033968927424592.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/quest-plague"
     },
@@ -79,7 +79,7 @@
       "source": "steam",
       "id": "3785275303",
       "title": "Keystrokes",
-      "downloads": 921,
+      "downloads": 922,
       "previewUrl": "https://images.steamusercontent.com/ugc/15964681018894652936/B92CE3931F677DDE25D7F1F3F3B5892FC8729ED8/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3785275303"
     },
@@ -87,7 +87,7 @@
       "source": "steam",
       "id": "3787224121",
       "title": "The End Of A Calamity",
-      "downloads": 792,
+      "downloads": 793,
       "previewUrl": "https://images.steamusercontent.com/ugc/16394421516552150902/DDAC1248100EBAEAD86032E914EA0152A08AF627/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3787224121"
     },
@@ -103,7 +103,7 @@
       "source": "curseforge",
       "id": "1456638",
       "title": "Clean UI Advancement | CUA",
-      "downloads": 337,
+      "downloads": 338,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1666/900/256/256/639060949472839872.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/clean-ui-advancement-cua"
     },
@@ -182,21 +182,21 @@
     {
       "id": "3787224121",
       "title": "The End Of A Calamity",
-      "subscriptions": 792,
+      "subscriptions": 793,
       "previewUrl": "https://images.steamusercontent.com/ugc/16394421516552150902/DDAC1248100EBAEAD86032E914EA0152A08AF627/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3787224121"
     },
     {
       "id": "3785275303",
       "title": "Keystrokes",
-      "subscriptions": 921,
+      "subscriptions": 922,
       "previewUrl": "https://images.steamusercontent.com/ugc/15964681018894652936/B92CE3931F677DDE25D7F1F3F3B5892FC8729ED8/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3785275303"
     },
     {
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "subscriptions": 36575,
+      "subscriptions": 36610,
       "previewUrl": "https://images.steamusercontent.com/ugc/16352074707467153735/FAE4094CFF5942E1EC38FA692479CD557A713053/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -290,10 +290,6 @@
       "hidden": false,
       "weeks": [
         {
-          "week": "2026-07-19",
-          "count": 0
-        },
-        {
           "week": "2026-07-26",
           "count": 0
         },
@@ -336,6 +332,10 @@
         {
           "week": "2026-10-04",
           "count": 10
+        },
+        {
+          "week": "2026-10-11",
+          "count": 0
         }
       ]
     },
@@ -345,5 +345,5 @@
       "hidden": true
     }
   ],
-  "updatedAt": "2026-10-10T23:16:06.285Z"
+  "updatedAt": "2026-10-11T04:15:00.533Z"
 }
