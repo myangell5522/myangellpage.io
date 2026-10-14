@@ -1,16 +1,16 @@
 {
-  "total": 128817,
+  "total": 129038,
   "steam": {
     "ok": true,
-    "downloads": 43560
+    "downloads": 43728
   },
   "modrinth": {
     "ok": true,
-    "downloads": 27699
+    "downloads": 27715
   },
   "curseforge": {
     "ok": true,
-    "downloads": 57476
+    "downloads": 57513
   },
   "nexus": {
     "ok": true,
@@ -31,7 +31,7 @@
       "source": "curseforge",
       "id": "1430255",
       "title": "Exposure + Immersive Paintings",
-      "downloads": 43724,
+      "downloads": 43747,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1614/500/256/256/639040606607073315.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/exposure-immersive-paintings"
     },
@@ -39,7 +39,7 @@
       "source": "steam",
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "downloads": 37145,
+      "downloads": 37170,
       "previewUrl": "https://images.steamusercontent.com/ugc/16352074707467153735/FAE4094CFF5942E1EC38FA692479CD557A713053/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -47,7 +47,7 @@
       "source": "modrinth",
       "id": "sGvIum2l",
       "title": "Player Locator Reforged",
-      "downloads": 27699,
+      "downloads": 27715,
       "previewUrl": "https://cdn.modrinth.com/data/sGvIum2l/5e61a6defa1035d619217ed88766f5d7a8ca9a51.png",
       "url": "https://modrinth.com/mod/player-locator-plus-reforged"
     },
@@ -55,7 +55,7 @@
       "source": "curseforge",
       "id": "1423062",
       "title": "Quest Plague",
-      "downloads": 13413,
+      "downloads": 13426,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1600/231/256/256/639033968927424592.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/quest-plague"
     },
@@ -71,7 +71,7 @@
       "source": "steam",
       "id": "3792104577",
       "title": "Terraria Bounce",
-      "downloads": 1300,
+      "downloads": 1301,
       "previewUrl": "https://images.steamusercontent.com/ugc/10859106396673764060/A315BDDA951DA125DB01BBE0DF50182B01734E95/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792104577"
     },
@@ -87,7 +87,7 @@
       "source": "steam",
       "id": "3787224121",
       "title": "The End Of A Calamity",
-      "downloads": 812,
+      "downloads": 815,
       "previewUrl": "https://images.steamusercontent.com/ugc/16394421516552150902/DDAC1248100EBAEAD86032E914EA0152A08AF627/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3787224121"
     },
@@ -103,9 +103,17 @@
       "source": "curseforge",
       "id": "1456638",
       "title": "Clean UI Advancement | CUA",
-      "downloads": 339,
+      "downloads": 340,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1666/900/256/256/639060949472839872.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/clean-ui-advancement-cua"
+    },
+    {
+      "source": "steam",
+      "id": "3819271557",
+      "title": "Vanity Studio",
+      "downloads": 139,
+      "previewUrl": "https://images.steamusercontent.com/ugc/14239765793020392236/8DFC4E12B67DAA95718AFF1588BAA961325C6687/",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3819271557"
     },
     {
       "source": "steam",
@@ -168,7 +176,7 @@
     {
       "id": "3792104577",
       "title": "Terraria Bounce",
-      "subscriptions": 1300,
+      "subscriptions": 1301,
       "previewUrl": "https://images.steamusercontent.com/ugc/10859106396673764060/A315BDDA951DA125DB01BBE0DF50182B01734E95/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792104577"
     },
@@ -182,7 +190,7 @@
     {
       "id": "3787224121",
       "title": "The End Of A Calamity",
-      "subscriptions": 812,
+      "subscriptions": 815,
       "previewUrl": "https://images.steamusercontent.com/ugc/16394421516552150902/DDAC1248100EBAEAD86032E914EA0152A08AF627/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3787224121"
     },
@@ -196,7 +204,7 @@
     {
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "subscriptions": 37145,
+      "subscriptions": 37170,
       "previewUrl": "https://images.steamusercontent.com/ugc/16352074707467153735/FAE4094CFF5942E1EC38FA692479CD557A713053/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -241,6 +249,13 @@
       "subscriptions": 103,
       "previewUrl": "https://images.steamusercontent.com/ugc/17918049774901576026/28C455F4CB188598209A74B1D47A688DA6FA7D9B/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3794649591"
+    },
+    {
+      "id": "3819271557",
+      "title": "Vanity Studio",
+      "subscriptions": 139,
+      "previewUrl": "https://images.steamusercontent.com/ugc/14239765793020392236/8DFC4E12B67DAA95718AFF1588BAA961325C6687/",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3819271557"
     }
   ],
   "discord": {
@@ -345,5 +360,5 @@
       "hidden": true
     }
   ],
-  "updatedAt": "2026-10-14T16:38:24.423Z"
+  "updatedAt": "2026-10-14T20:28:47.392Z"
 }
