@@ -90,6 +90,8 @@ function renderProfile(user) {
   if (src) avatar.src = src;
   avatar.alt = display;
   name.textContent = display;
+  window.siteProfile = { name: display, login: user?.login || GITHUB_USER, avatar: src || avatar.src };
+  window.dispatchEvent(new CustomEvent("profile", { detail: window.siteProfile }));
 }
 
 function renderDeltas(stats) {
@@ -152,6 +154,9 @@ async function loadStats() {
     }
 
     renderDeltas(stats);
+    renderShares({ steam, modrinth, curseforge, nexus }, total);
+    renderTrend(stats);
+    celebrate(stats);
     renderProfile(stats.github);
     renderWorks(stats.projects || stats.steamItems || []);
     renderDiscord(stats.discord);
@@ -280,14 +285,21 @@ function renderWorks(items) {
     return;
   }
 
+  const counter = document.querySelector("#works-count");
+  if (counter) counter.textContent = `${format(sorted.length)} ${plural(sorted.length, "работа", "работы", "работ")}`;
+
   root.replaceChildren(
-    ...sorted.map((item) => {
+    ...sorted.map((item, index) => {
       const link = document.createElement("a");
       link.className = "work";
       link.href = safeHttps(item.url);
       link.target = "_blank";
       link.rel = "noopener noreferrer";
+      link.style.setProperty("--i", String(Math.min(index, 14)));
+      if (item.source) link.dataset.source = item.source;
 
+      const media = document.createElement("div");
+      media.className = "work__media";
       const preview = safeHttps(item.previewUrl);
       if (preview) {
         const image = document.createElement("img");
@@ -297,7 +309,16 @@ function renderWorks(items) {
         image.loading = "lazy";
         image.decoding = "async";
         image.addEventListener("error", () => image.remove());
-        link.append(image);
+        media.append(image);
+      }
+      link.append(media);
+
+      if (index < 3) {
+        const rank = document.createElement("span");
+        rank.className = `work__rank work__rank--${index + 1}`;
+        rank.textContent = `#${index + 1}`;
+        rank.title = `Топ-${index + 1} по загрузкам`;
+        link.append(rank);
       }
 
       const icon = SOURCE_ICONS[item.source];
@@ -313,8 +334,11 @@ function renderWorks(items) {
       title.textContent = item.title;
       const meta = document.createElement("p");
       const count = Math.max(0, Math.round(item.downloads ?? item.subscriptions ?? 0));
-      meta.textContent = `${format(count)} ${plural(count, "загрузка", "загрузки", "загрузок")}`;
+      const strong = document.createElement("b");
+      strong.textContent = format(count);
+      meta.append(strong, ` ${plural(count, "загрузка", "загрузки", "загрузок")}`);
       link.append(title, meta);
+      attachTilt(link, 6);
       return link;
     }),
   );
@@ -382,6 +406,7 @@ function renderGraph(days) {
     week.forEach((day) => {
       const cell = document.createElement("span");
       cell.className = "day";
+      cell.style.setProperty("--w", String(index));
       if (!day) {
         cell.classList.add("day--empty");
         cell.setAttribute("aria-hidden", "true");
@@ -479,6 +504,7 @@ function renderPulse(weeks) {
 
   weeks.forEach((week, index) => {
     const bar = document.createElement("span");
+    bar.style.setProperty("--i", String(index));
     const level = week.count === 0 ? 0 : Math.min(4, Math.ceil((week.count / max) * 4));
     bar.className = `pulse__bar day--l${level}`;
     if (index === lastActive) bar.classList.add("pulse__bar--live");
@@ -496,5 +522,250 @@ function renderPulse(weeks) {
   return bars;
 }
 
+/* ---------- Extras: shares, trend, celebration ---------- */
+
+function renderShares(values, total) {
+  const sum = Math.max(1, total);
+  for (const [key, value] of Object.entries(values)) {
+    const fill = document.querySelector(`[data-share="${key}"]`);
+    if (!fill) continue;
+    const pct = (value / sum) * 100;
+    requestAnimationFrame(() => {
+      fill.style.width = `${Math.max(value > 0 ? 2 : 0, pct).toFixed(1)}%`;
+    });
+    fill.parentElement.title = `${pct.toFixed(1)}% от всех загрузок`;
+  }
+}
+
+function renderTrend(stats) {
+  const box = document.querySelector("#trend");
+  const svg = document.querySelector("#trend-chart");
+  const tip = document.querySelector("#trend-tip");
+  const sumEl = document.querySelector("#trend-sum");
+  if (!box || !svg) return;
+
+  const history = Array.isArray(stats.history)
+    ? stats.history.filter((entry) => entry?.date && Number.isFinite(entry.total))
+    : [];
+  const days = [];
+  for (let i = 1; i < history.length; i += 1) {
+    days.push({ date: history[i].date, gain: Math.max(0, history[i].total - history[i - 1].total) });
+  }
+  // Fallback before history accumulates: show today's gain from the daily base.
+  if (!days.length && stats.today?.base && Number.isFinite(stats.today.base.total)) {
+    days.push({ date: stats.today.date, gain: Math.max(0, (stats.total ?? 0) - stats.today.base.total) });
+  }
+  const recent = days.slice(-14);
+  if (!recent.length) return;
+
+  const NS = "http://www.w3.org/2000/svg";
+  const W = 240;
+  const H = 64;
+  const slots = 14;
+  const gap = 4;
+  const barW = (W - gap * (slots - 1)) / slots;
+  const max = Math.max(1, ...recent.map((day) => day.gain));
+  const defs = document.createElementNS(NS, "defs");
+  defs.innerHTML = `
+    <linearGradient id="trend-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2ee6c5"/><stop offset="1" stop-color="#26a641" stop-opacity="0.55"/>
+    </linearGradient>
+    <linearGradient id="trend-grad-hot" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b6ffcb"/><stop offset="1" stop-color="#39d353"/>
+    </linearGradient>`;
+  const nodes = [defs];
+  const offset = slots - recent.length;
+  recent.forEach((day, index) => {
+    const h = day.gain === 0 ? 2 : Math.max(4, (day.gain / max) * H);
+    const rect = document.createElementNS(NS, "rect");
+    const x = (offset + index) * (barW + gap);
+    rect.setAttribute("x", x.toFixed(2));
+    rect.setAttribute("y", (H - h).toFixed(2));
+    rect.setAttribute("width", barW.toFixed(2));
+    rect.setAttribute("height", h.toFixed(2));
+    rect.setAttribute("rx", "2.5");
+    rect.setAttribute("class", `bar${index === recent.length - 1 ? " bar--today" : ""}`);
+    rect.style.animationDelay = `${0.5 + index * 0.05}s`;
+    const label = new Intl.DateTimeFormat("ru-RU", { day: "numeric", month: "short", timeZone: "UTC" })
+      .format(new Date(`${day.date}T12:00:00Z`));
+    const text = `${label}: +${format(day.gain)}`;
+    rect.addEventListener("mouseenter", () => {
+      if (!tip) return;
+      tip.textContent = text;
+      tip.hidden = false;
+      const boxRect = box.getBoundingClientRect();
+      const r = rect.getBoundingClientRect();
+      tip.style.left = `${r.left - boxRect.left + r.width / 2}px`;
+      tip.style.bottom = `${boxRect.bottom - r.top + 6}px`;
+    });
+    rect.addEventListener("mouseleave", () => { if (tip) tip.hidden = true; });
+    const title = document.createElementNS(NS, "title");
+    title.textContent = text;
+    rect.append(title);
+    nodes.push(rect);
+  });
+  svg.replaceChildren(...nodes);
+  const sum = recent.reduce((acc, day) => acc + day.gain, 0);
+  sumEl.textContent = `+${format(sum)} за ${recent.length} ${plural(recent.length, "день", "дня", "дней")}`;
+  box.hidden = false;
+}
+
+function celebrate(stats) {
+  const base = stats.today?.base?.total;
+  if (!Number.isFinite(base) || (stats.total ?? 0) <= base || prefersReducedMotion()) return;
+  const host = document.querySelector(".total");
+  if (!host) return;
+  const colors = ["#39d353", "#2ee6c5", "#a371f7", "#ff7ab8", "#ffe58a"];
+  setTimeout(() => {
+    const badge = host.querySelector(".delta--total");
+    const hostRect = host.getBoundingClientRect();
+    const r = badge && !badge.hidden ? badge.getBoundingClientRect() : hostRect;
+    const ox = r.left - hostRect.left + r.width / 2;
+    const oy = r.top - hostRect.top + r.height / 2;
+    for (let i = 0; i < 26; i += 1) {
+      const piece = document.createElement("span");
+      piece.className = "burst";
+      piece.style.left = `${ox}px`;
+      piece.style.top = `${oy}px`;
+      piece.style.background = colors[i % colors.length];
+      host.append(piece);
+      const angle = Math.random() * Math.PI * 2;
+      const dist = 40 + Math.random() * 70;
+      piece.animate(
+        [
+          { transform: "translate(-50%, -50%) scale(1) rotate(0deg)", opacity: 1 },
+          {
+            transform: `translate(calc(-50% + ${Math.cos(angle) * dist}px), calc(-50% + ${Math.sin(angle) * dist + 30}px)) scale(0.3) rotate(${Math.random() * 540}deg)`,
+            opacity: 0,
+          },
+        ],
+        { duration: 900 + Math.random() * 500, easing: "cubic-bezier(0.16, 1, 0.3, 1)" },
+      ).onfinish = () => piece.remove();
+    }
+  }, 1500);
+}
+
+/* ---------- Effects: reveal, tilt + spotlight, starfield ---------- */
+
+function setupReveal() {
+  const items = document.querySelectorAll(".reveal");
+  items.forEach((el, index) => el.style.setProperty("--d", `${Math.min(index, 8) * 0.06}s`));
+  if (!("IntersectionObserver" in window) || prefersReducedMotion()) {
+    items.forEach((el) => el.classList.add("is-in"));
+    return;
+  }
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-in");
+          observer.unobserve(entry.target);
+        }
+      }
+    },
+    { threshold: 0.08 },
+  );
+  items.forEach((el) => observer.observe(el));
+}
+
+const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+function attachTilt(el, strength = 8) {
+  if (!finePointer || prefersReducedMotion()) return;
+  let frame = 0;
+  el.addEventListener("pointermove", (event) => {
+    const rect = el.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width;
+    const y = (event.clientY - rect.top) / rect.height;
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => {
+      el.style.setProperty("--mx", `${(x * 100).toFixed(1)}%`);
+      el.style.setProperty("--my", `${(y * 100).toFixed(1)}%`);
+      el.style.transform = `perspective(700px) rotateX(${((0.5 - y) * strength).toFixed(2)}deg) rotateY(${((x - 0.5) * strength).toFixed(2)}deg) translateY(-2px)`;
+    });
+  });
+  el.addEventListener("pointerleave", () => {
+    cancelAnimationFrame(frame);
+    el.style.transform = "";
+  });
+}
+
+function setupSky() {
+  const canvas = document.querySelector("#sky");
+  if (!canvas || prefersReducedMotion()) return;
+  const ctx = canvas.getContext("2d");
+  const palette = ["57,211,83", "46,230,197", "163,113,247", "240,246,252"];
+  let width = 0;
+  let height = 0;
+  let stars = [];
+  let mouseX = 0.5;
+  let mouseY = 0.5;
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  function resize() {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const count = Math.round(Math.min(140, (width * height) / 11000));
+    stars = Array.from({ length: count }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      z: 0.2 + Math.random() * 0.8,
+      r: 0.4 + Math.random() * 1.3,
+      c: palette[Math.floor(Math.random() * (Math.random() < 0.6 ? 1 : palette.length))],
+      t: Math.random() * Math.PI * 2,
+      vy: -(0.04 + Math.random() * 0.16),
+    }));
+  }
+
+  window.addEventListener("resize", resize);
+  window.addEventListener("pointermove", (event) => {
+    mouseX = event.clientX / Math.max(1, width);
+    mouseY = event.clientY / Math.max(1, height);
+  });
+
+  let running = true;
+  document.addEventListener("visibilitychange", () => {
+    running = !document.hidden;
+    if (running) requestAnimationFrame(draw);
+  });
+
+  function draw(now) {
+    if (!running) return;
+    ctx.clearRect(0, 0, width, height);
+    const px = (mouseX - 0.5) * 30;
+    const py = (mouseY - 0.5) * 30;
+    for (const star of stars) {
+      star.y += star.vy * star.z;
+      if (star.y < -10) {
+        star.y = height + 10;
+        star.x = Math.random() * width;
+      }
+      const twinkle = 0.45 + 0.55 * Math.sin(now / 900 + star.t);
+      const x = star.x + px * star.z;
+      const y = star.y + py * star.z;
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(${star.c},${(0.15 + 0.6 * twinkle * star.z).toFixed(3)})`;
+      ctx.arc(x, y, star.r * star.z + 0.2, 0, Math.PI * 2);
+      ctx.fill();
+      if (star.r > 1.4 && star.z > 0.7) {
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(${star.c},${(0.08 * twinkle).toFixed(3)})`;
+        ctx.arc(x, y, star.r * 5, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  requestAnimationFrame(draw);
+}
+
+document.querySelectorAll(".card").forEach((card) => attachTilt(card, 7));
+setupReveal();
+setupSky();
 loadStats();
 loadContributions();
