@@ -1,16 +1,16 @@
 {
-  "total": 130287,
+  "total": 130346,
   "steam": {
     "ok": true,
-    "downloads": 44333
+    "downloads": 44346
   },
   "modrinth": {
     "ok": true,
-    "downloads": 27979
+    "downloads": 27999
   },
   "curseforge": {
     "ok": true,
-    "downloads": 57886
+    "downloads": 57912
   },
   "nexus": {
     "ok": true,
@@ -31,7 +31,7 @@
       "source": "curseforge",
       "id": "1430255",
       "title": "Exposure + Immersive Paintings",
-      "downloads": 44003,
+      "downloads": 44018,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1614/500/256/256/639040606607073315.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/exposure-immersive-paintings"
     },
@@ -39,7 +39,7 @@
       "source": "steam",
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "downloads": 37478,
+      "downloads": 37488,
       "previewUrl": "https://images.steamusercontent.com/ugc/13797106183919964355/788FFD69DE9ECDEE985AAFDD5C6B69D5AAC79590/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -47,7 +47,7 @@
       "source": "modrinth",
       "id": "sGvIum2l",
       "title": "Player Locator Reforged",
-      "downloads": 27979,
+      "downloads": 27999,
       "previewUrl": "https://cdn.modrinth.com/data/sGvIum2l/5e61a6defa1035d619217ed88766f5d7a8ca9a51.png",
       "url": "https://modrinth.com/mod/player-locator-plus-reforged"
     },
@@ -55,7 +55,7 @@
       "source": "curseforge",
       "id": "1423062",
       "title": "Quest Plague",
-      "downloads": 13543,
+      "downloads": 13553,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1600/231/256/256/639033968927424592.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/quest-plague"
     },
@@ -63,7 +63,7 @@
       "source": "steam",
       "id": "3792811842",
       "title": "Wallpaper Engine",
-      "downloads": 2631,
+      "downloads": 2632,
       "previewUrl": "https://images.steamusercontent.com/ugc/18203176254922855527/82A528C1AB67B1FB9C03661784F90425023B5D54/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792811842"
     },
@@ -79,7 +79,7 @@
       "source": "steam",
       "id": "3785275303",
       "title": "Keystrokes",
-      "downloads": 940,
+      "downloads": 941,
       "previewUrl": "https://images.steamusercontent.com/ugc/9743110214533267861/A9DE95556F1F13A4859A70E910CB8BD064593DC5/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3785275303"
     },
@@ -111,7 +111,7 @@
       "source": "curseforge",
       "id": "1456638",
       "title": "Clean UI Advancement | CUA",
-      "downloads": 340,
+      "downloads": 341,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1666/900/256/256/639060949472839872.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/clean-ui-advancement-cua"
     },
@@ -119,7 +119,7 @@
       "source": "steam",
       "id": "3794649591",
       "title": "Swap My Audio!",
-      "downloads": 108,
+      "downloads": 109,
       "previewUrl": "https://images.steamusercontent.com/ugc/11916528240001569881/1026B1370E19D80860413496479E00768AAF8BEF/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3794649591"
     },
@@ -191,7 +191,7 @@
     {
       "id": "3792811842",
       "title": "Wallpaper Engine",
-      "subscriptions": 2631,
+      "subscriptions": 2632,
       "previewUrl": "https://images.steamusercontent.com/ugc/18203176254922855527/82A528C1AB67B1FB9C03661784F90425023B5D54/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792811842"
     },
@@ -205,14 +205,14 @@
     {
       "id": "3785275303",
       "title": "Keystrokes",
-      "subscriptions": 940,
+      "subscriptions": 941,
       "previewUrl": "https://images.steamusercontent.com/ugc/9743110214533267861/A9DE95556F1F13A4859A70E910CB8BD064593DC5/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3785275303"
     },
     {
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "subscriptions": 37478,
+      "subscriptions": 37488,
       "previewUrl": "https://images.steamusercontent.com/ugc/13797106183919964355/788FFD69DE9ECDEE985AAFDD5C6B69D5AAC79590/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -254,7 +254,7 @@
     {
       "id": "3794649591",
       "title": "Swap My Audio!",
-      "subscriptions": 108,
+      "subscriptions": 109,
       "previewUrl": "https://images.steamusercontent.com/ugc/11916528240001569881/1026B1370E19D80860413496479E00768AAF8BEF/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3794649591"
     },
@@ -375,5 +375,5 @@
       "hidden": true
     }
   ],
-  "updatedAt": "2026-10-16T22:33:56.027Z"
+  "updatedAt": "2026-10-17T01:05:10.852Z"
 }
