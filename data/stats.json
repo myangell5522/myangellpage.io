@@ -1,16 +1,16 @@
 {
-  "total": 131439,
+  "total": 131525,
   "steam": {
     "ok": true,
-    "downloads": 44754
+    "downloads": 44778
   },
   "modrinth": {
     "ok": true,
-    "downloads": 28321
+    "downloads": 28347
   },
   "curseforge": {
     "ok": true,
-    "downloads": 58272
+    "downloads": 58308
   },
   "nexus": {
     "ok": true,
@@ -31,7 +31,7 @@
       "source": "curseforge",
       "id": "1430255",
       "title": "Exposure + Immersive Paintings",
-      "downloads": 44271,
+      "downloads": 44289,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1614/500/256/256/639040606607073315.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/exposure-immersive-paintings"
     },
@@ -39,7 +39,7 @@
       "source": "steam",
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "downloads": 37777,
+      "downloads": 37792,
       "previewUrl": "https://images.steamusercontent.com/ugc/13797106183919964355/788FFD69DE9ECDEE985AAFDD5C6B69D5AAC79590/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -47,7 +47,7 @@
       "source": "modrinth",
       "id": "sGvIum2l",
       "title": "Player Locator Reforged",
-      "downloads": 28321,
+      "downloads": 28347,
       "previewUrl": "https://cdn.modrinth.com/data/sGvIum2l/5e61a6defa1035d619217ed88766f5d7a8ca9a51.png",
       "url": "https://modrinth.com/mod/player-locator-plus-reforged"
     },
@@ -55,7 +55,7 @@
       "source": "curseforge",
       "id": "1423062",
       "title": "Quest Plague",
-      "downloads": 13657,
+      "downloads": 13673,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1600/231/256/256/639033968927424592.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/quest-plague"
     },
@@ -79,7 +79,7 @@
       "source": "steam",
       "id": "3785275303",
       "title": "Keystrokes",
-      "downloads": 959,
+      "downloads": 961,
       "previewUrl": "https://images.steamusercontent.com/ugc/9743110214533267861/A9DE95556F1F13A4859A70E910CB8BD064593DC5/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3785275303"
     },
@@ -87,9 +87,17 @@
       "source": "steam",
       "id": "3787224121",
       "title": "The End Of A Calamity",
-      "downloads": 842,
+      "downloads": 841,
       "previewUrl": "https://images.steamusercontent.com/ugc/16394421516552150902/DDAC1248100EBAEAD86032E914EA0152A08AF627/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3787224121"
+    },
+    {
+      "source": "steam",
+      "id": "3819271557",
+      "title": "Vanity Studio",
+      "downloads": 425,
+      "previewUrl": "https://images.steamusercontent.com/ugc/14239765793020392236/8DFC4E12B67DAA95718AFF1588BAA961325C6687/",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3819271557"
     },
     {
       "source": "steam",
@@ -100,18 +108,10 @@
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3401005260"
     },
     {
-      "source": "steam",
-      "id": "3819271557",
-      "title": "Vanity Studio",
-      "downloads": 422,
-      "previewUrl": "https://images.steamusercontent.com/ugc/14239765793020392236/8DFC4E12B67DAA95718AFF1588BAA961325C6687/",
-      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3819271557"
-    },
-    {
       "source": "curseforge",
       "id": "1456638",
       "title": "Clean UI Advancement | CUA",
-      "downloads": 344,
+      "downloads": 346,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1666/900/256/256/639060949472839872.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/clean-ui-advancement-cua"
     },
@@ -141,19 +141,19 @@
     },
     {
       "source": "steam",
+      "id": "3820442598",
+      "title": "Mecha Keys",
+      "downloads": 58,
+      "previewUrl": "https://images.steamusercontent.com/ugc/16382141448172799722/957EA10104747C5E106701BBAEC135EACBA61840/",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3820442598"
+    },
+    {
+      "source": "steam",
       "id": "3456277123",
       "title": "«Мияби (ZZZ)»",
       "downloads": 54,
       "previewUrl": "https://images.steamusercontent.com/ugc/58090453779627621/8EB950197D55725CCB364B126A53939AED062B29/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3456277123"
-    },
-    {
-      "source": "steam",
-      "id": "3820442598",
-      "title": "Mecha Keys",
-      "downloads": 53,
-      "previewUrl": "https://images.steamusercontent.com/ugc/16382141448172799722/957EA10104747C5E106701BBAEC135EACBA61840/",
-      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3820442598"
     },
     {
       "source": "steam",
@@ -198,21 +198,21 @@
     {
       "id": "3787224121",
       "title": "The End Of A Calamity",
-      "subscriptions": 842,
+      "subscriptions": 841,
       "previewUrl": "https://images.steamusercontent.com/ugc/16394421516552150902/DDAC1248100EBAEAD86032E914EA0152A08AF627/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3787224121"
     },
     {
       "id": "3785275303",
       "title": "Keystrokes",
-      "subscriptions": 959,
+      "subscriptions": 961,
       "previewUrl": "https://images.steamusercontent.com/ugc/9743110214533267861/A9DE95556F1F13A4859A70E910CB8BD064593DC5/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3785275303"
     },
     {
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "subscriptions": 37777,
+      "subscriptions": 37792,
       "previewUrl": "https://images.steamusercontent.com/ugc/13797106183919964355/788FFD69DE9ECDEE985AAFDD5C6B69D5AAC79590/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -261,14 +261,14 @@
     {
       "id": "3820442598",
       "title": "Mecha Keys",
-      "subscriptions": 53,
+      "subscriptions": 58,
       "previewUrl": "https://images.steamusercontent.com/ugc/16382141448172799722/957EA10104747C5E106701BBAEC135EACBA61840/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3820442598"
     },
     {
       "id": "3819271557",
       "title": "Vanity Studio",
-      "subscriptions": 422,
+      "subscriptions": 425,
       "previewUrl": "https://images.steamusercontent.com/ugc/14239765793020392236/8DFC4E12B67DAA95718AFF1588BAA961325C6687/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3819271557"
     }
@@ -375,5 +375,5 @@
       "hidden": true
     }
   ],
-  "updatedAt": "2026-10-18T16:27:30.473Z"
+  "updatedAt": "2026-10-18T19:14:25.839Z"
 }
