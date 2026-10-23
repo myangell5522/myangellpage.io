@@ -1,20 +1,20 @@
 {
-  "total": 133498,
+  "total": 133628,
   "steam": {
     "ok": true,
-    "downloads": 45431
+    "downloads": 45473
   },
   "modrinth": {
     "ok": true,
-    "downloads": 28855
+    "downloads": 28883
   },
   "curseforge": {
     "ok": true,
-    "downloads": 59101
+    "downloads": 59160
   },
   "nexus": {
     "ok": true,
-    "downloads": 111
+    "downloads": 112
   },
   "today": {
     "date": "2026-10-23",
@@ -31,7 +31,7 @@
       "source": "curseforge",
       "id": "1430255",
       "title": "Exposure + Immersive Paintings",
-      "downloads": 44791,
+      "downloads": 44833,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1614/500/256/256/639040606607073315.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/exposure-immersive-paintings"
     },
@@ -39,7 +39,7 @@
       "source": "steam",
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "downloads": 38205,
+      "downloads": 38236,
       "previewUrl": "https://images.steamusercontent.com/ugc/13797106183919964355/788FFD69DE9ECDEE985AAFDD5C6B69D5AAC79590/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -47,7 +47,7 @@
       "source": "modrinth",
       "id": "sGvIum2l",
       "title": "Player Locator Reforged",
-      "downloads": 28855,
+      "downloads": 28883,
       "previewUrl": "https://cdn.modrinth.com/data/sGvIum2l/5e61a6defa1035d619217ed88766f5d7a8ca9a51.png",
       "url": "https://modrinth.com/mod/player-locator-plus-reforged"
     },
@@ -55,7 +55,7 @@
       "source": "curseforge",
       "id": "1423062",
       "title": "Quest Plague",
-      "downloads": 13957,
+      "downloads": 13974,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1600/231/256/256/639033968927424592.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/quest-plague"
     },
@@ -71,7 +71,7 @@
       "source": "steam",
       "id": "3792104577",
       "title": "Terraria Bounce",
-      "downloads": 1308,
+      "downloads": 1307,
       "previewUrl": "https://images.steamusercontent.com/ugc/10859106396673764060/A315BDDA951DA125DB01BBE0DF50182B01734E95/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792104577"
     },
@@ -79,7 +79,7 @@
       "source": "steam",
       "id": "3785275303",
       "title": "Keystrokes",
-      "downloads": 985,
+      "downloads": 989,
       "previewUrl": "https://images.steamusercontent.com/ugc/9743110214533267861/A9DE95556F1F13A4859A70E910CB8BD064593DC5/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3785275303"
     },
@@ -95,7 +95,7 @@
       "source": "steam",
       "id": "3819271557",
       "title": "Vanity Studio",
-      "downloads": 447,
+      "downloads": 449,
       "previewUrl": "https://images.steamusercontent.com/ugc/14239765793020392236/8DFC4E12B67DAA95718AFF1588BAA961325C6687/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3819271557"
     },
@@ -119,7 +119,7 @@
       "source": "steam",
       "id": "3820442598",
       "title": "Mecha Keys",
-      "downloads": 210,
+      "downloads": 216,
       "previewUrl": "https://images.steamusercontent.com/ugc/16382141448172799722/957EA10104747C5E106701BBAEC135EACBA61840/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3820442598"
     },
@@ -135,7 +135,7 @@
       "source": "nexus",
       "id": "827",
       "title": "Auto Chips on any difficulty",
-      "downloads": 116,
+      "downloads": 117,
       "previewUrl": "https://staticdelivery.nexusmods.com/mods/1950/images/827/827-1791317121-1006175233.png",
       "url": "https://www.nexusmods.com/nierautomata/mods/827"
     },
@@ -184,7 +184,7 @@
     {
       "id": "3792104577",
       "title": "Terraria Bounce",
-      "subscriptions": 1308,
+      "subscriptions": 1307,
       "previewUrl": "https://images.steamusercontent.com/ugc/10859106396673764060/A315BDDA951DA125DB01BBE0DF50182B01734E95/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792104577"
     },
@@ -205,14 +205,14 @@
     {
       "id": "3785275303",
       "title": "Keystrokes",
-      "subscriptions": 985,
+      "subscriptions": 989,
       "previewUrl": "https://images.steamusercontent.com/ugc/9743110214533267861/A9DE95556F1F13A4859A70E910CB8BD064593DC5/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3785275303"
     },
     {
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "subscriptions": 38205,
+      "subscriptions": 38236,
       "previewUrl": "https://images.steamusercontent.com/ugc/13797106183919964355/788FFD69DE9ECDEE985AAFDD5C6B69D5AAC79590/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -261,14 +261,14 @@
     {
       "id": "3820442598",
       "title": "Mecha Keys",
-      "subscriptions": 210,
+      "subscriptions": 216,
       "previewUrl": "https://images.steamusercontent.com/ugc/16382141448172799722/957EA10104747C5E106701BBAEC135EACBA61840/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3820442598"
     },
     {
       "id": "3819271557",
       "title": "Vanity Studio",
-      "subscriptions": 447,
+      "subscriptions": 449,
       "previewUrl": "https://images.steamusercontent.com/ugc/14239765793020392236/8DFC4E12B67DAA95718AFF1588BAA961325C6687/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3819271557"
     }
@@ -375,5 +375,5 @@
       "hidden": true
     }
   ],
-  "updatedAt": "2026-10-23T13:05:42.217Z"
+  "updatedAt": "2026-10-23T18:06:18.236Z"
 }
