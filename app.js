@@ -795,12 +795,36 @@ function setupSky() {
 
 /* ---------- GitHub profile widget (generated in the myangell5522 repo) ---------- */
 
-// The profile repo regenerates this SVG every 30 minutes in the site's palette.
-// raw.githubusercontent serves it as text, so it's fetched and shown through a blob URL.
+// The profile repo regenerates its widget SVG every 30 minutes. The page uses the
+// site-colored copy if it exists; otherwise it takes the gold card and swaps its
+// palette here. raw.githubusercontent serves SVG as text, so it's shown through a blob URL.
+const WIDGET_BASE = "https://raw.githubusercontent.com/myangell5522/myangell5522/main/widgets/";
 const WIDGET_SOURCES = [
-  "https://raw.githubusercontent.com/myangell5522/myangell5522/main/widgets/profile-card-portfolio.svg",
-  "https://cdn.jsdelivr.net/gh/myangell5522/myangell5522@main/widgets/profile-card-portfolio.svg",
+  { url: `${WIDGET_BASE}profile-card-portfolio.svg`, recolor: false },
+  { url: `${WIDGET_BASE}profile-card.svg`, recolor: true },
+  { url: "https://cdn.jsdelivr.net/gh/myangell5522/myangell5522@main/widgets/profile-card.svg", recolor: true },
 ];
+// Gold palette (GitHub profile) → portfolio palette.
+const WIDGET_PALETTE = {
+  "#E8B84A": "#39D353",
+  "#F7D37A": "#5FF2C8",
+  "#F0C85A": "#5FF2C8",
+  "#FFF6E4": "#EAFBF0",
+  "#1A1408": "#07130A",
+  "#EEF2F8": "#F0F6FC",
+  "#8D96A8": "#8B949E",
+  "#5B6375": "#5B6472",
+  "#14110B": "#0B1411",
+  "#16120C": "#0B1411",
+  "#0A0E1A": "#07090D",
+  "#0B1020": "#07090D",
+  "#2A2418": "#14231A",
+};
+
+function recolorWidget(svg) {
+  const pattern = new RegExp(Object.keys(WIDGET_PALETTE).join("|"), "gi");
+  return svg.replace(pattern, (hex) => WIDGET_PALETTE[hex.toUpperCase()] || hex);
+}
 
 async function loadProfileWidget() {
   const section = document.querySelector("#gh-widget");
@@ -814,12 +838,13 @@ async function loadProfileWidget() {
       img.src = src;
     });
 
-  for (const url of WIDGET_SOURCES) {
+  for (const source of WIDGET_SOURCES) {
     try {
-      const res = await fetch(`${url}?t=${Math.floor(Date.now() / 600000)}`, { cache: "no-cache" });
+      const res = await fetch(`${source.url}?t=${Math.floor(Date.now() / 600000)}`, { cache: "no-cache" });
       if (!res.ok) continue;
-      const text = await res.text();
+      let text = await res.text();
       if (!text.includes("<svg")) continue;
+      if (source.recolor) text = recolorWidget(text);
       await show(URL.createObjectURL(new Blob([text], { type: "image/svg+xml" })));
       img.hidden = false;
       frame.classList.remove("is-loading");
