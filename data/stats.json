@@ -1,20 +1,20 @@
 {
-  "total": 133975,
+  "total": 134079,
   "steam": {
     "ok": true,
-    "downloads": 45580
+    "downloads": 45631
   },
   "modrinth": {
     "ok": true,
-    "downloads": 28969
+    "downloads": 28991
   },
   "curseforge": {
     "ok": true,
-    "downloads": 59314
+    "downloads": 59344
   },
   "nexus": {
     "ok": true,
-    "downloads": 112
+    "downloads": 113
   },
   "today": {
     "date": "2026-10-24",
@@ -31,7 +31,7 @@
       "source": "curseforge",
       "id": "1430255",
       "title": "Exposure + Immersive Paintings",
-      "downloads": 44940,
+      "downloads": 44967,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1614/500/256/256/639040606607073315.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/exposure-immersive-paintings"
     },
@@ -39,7 +39,7 @@
       "source": "steam",
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "downloads": 38303,
+      "downloads": 38336,
       "previewUrl": "https://images.steamusercontent.com/ugc/13797106183919964355/788FFD69DE9ECDEE985AAFDD5C6B69D5AAC79590/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -47,7 +47,7 @@
       "source": "modrinth",
       "id": "sGvIum2l",
       "title": "Player Locator Reforged",
-      "downloads": 28969,
+      "downloads": 28991,
       "previewUrl": "https://cdn.modrinth.com/data/sGvIum2l/5e61a6defa1035d619217ed88766f5d7a8ca9a51.png",
       "url": "https://modrinth.com/mod/player-locator-plus-reforged"
     },
@@ -55,7 +55,7 @@
       "source": "curseforge",
       "id": "1423062",
       "title": "Quest Plague",
-      "downloads": 14021,
+      "downloads": 14024,
       "previewUrl": "https://media.forgecdn.net/avatars/thumbnails/1600/231/256/256/639033968927424592.png",
       "url": "https://www.curseforge.com/minecraft/mc-mods/quest-plague"
     },
@@ -71,7 +71,7 @@
       "source": "steam",
       "id": "3792104577",
       "title": "Terraria Bounce",
-      "downloads": 1305,
+      "downloads": 1306,
       "previewUrl": "https://images.steamusercontent.com/ugc/10859106396673764060/A315BDDA951DA125DB01BBE0DF50182B01734E95/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792104577"
     },
@@ -79,7 +79,7 @@
       "source": "steam",
       "id": "3785275303",
       "title": "Keystrokes",
-      "downloads": 989,
+      "downloads": 990,
       "previewUrl": "https://images.steamusercontent.com/ugc/9743110214533267861/A9DE95556F1F13A4859A70E910CB8BD064593DC5/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3785275303"
     },
@@ -87,7 +87,7 @@
       "source": "steam",
       "id": "3787224121",
       "title": "The End Of A Calamity",
-      "downloads": 869,
+      "downloads": 870,
       "previewUrl": "https://images.steamusercontent.com/ugc/16394421516552150902/DDAC1248100EBAEAD86032E914EA0152A08AF627/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3787224121"
     },
@@ -95,7 +95,7 @@
       "source": "steam",
       "id": "3819271557",
       "title": "Vanity Studio",
-      "downloads": 448,
+      "downloads": 449,
       "previewUrl": "https://images.steamusercontent.com/ugc/14239765793020392236/8DFC4E12B67DAA95718AFF1588BAA961325C6687/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3819271557"
     },
@@ -119,7 +119,7 @@
       "source": "steam",
       "id": "3820442598",
       "title": "Mecha Keys",
-      "downloads": 233,
+      "downloads": 234,
       "previewUrl": "https://images.steamusercontent.com/ugc/16382141448172799722/957EA10104747C5E106701BBAEC135EACBA61840/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3820442598"
     },
@@ -165,19 +165,19 @@
     },
     {
       "source": "steam",
+      "id": "3825707181",
+      "title": "Empress of Night | MEAC Renewed",
+      "downloads": 34,
+      "previewUrl": "https://images.steamusercontent.com/ugc/18108726235000849594/5E509458B230AEBF79BB7AEF8D7AD61468E17567/",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3825707181"
+    },
+    {
+      "source": "steam",
       "id": "3456272360",
       "title": "«Камелия (Wuthering Waves)»",
       "downloads": 21,
       "previewUrl": "https://images.steamusercontent.com/ugc/58090453779583666/A9F370B25E714C109567459084E40139AD1601AD/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3456272360"
-    },
-    {
-      "source": "steam",
-      "id": "3825707181",
-      "title": "Empress of Night | MEAC Renewed",
-      "downloads": 21,
-      "previewUrl": "https://images.steamusercontent.com/ugc/18108726235000849594/5E509458B230AEBF79BB7AEF8D7AD61468E17567/",
-      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3825707181"
     },
     {
       "source": "nexus",
@@ -192,7 +192,7 @@
     {
       "id": "3792104577",
       "title": "Terraria Bounce",
-      "subscriptions": 1305,
+      "subscriptions": 1306,
       "previewUrl": "https://images.steamusercontent.com/ugc/10859106396673764060/A315BDDA951DA125DB01BBE0DF50182B01734E95/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3792104577"
     },
@@ -206,21 +206,21 @@
     {
       "id": "3787224121",
       "title": "The End Of A Calamity",
-      "subscriptions": 869,
+      "subscriptions": 870,
       "previewUrl": "https://images.steamusercontent.com/ugc/16394421516552150902/DDAC1248100EBAEAD86032E914EA0152A08AF627/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3787224121"
     },
     {
       "id": "3785275303",
       "title": "Keystrokes",
-      "subscriptions": 989,
+      "subscriptions": 990,
       "previewUrl": "https://images.steamusercontent.com/ugc/9743110214533267861/A9DE95556F1F13A4859A70E910CB8BD064593DC5/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3785275303"
     },
     {
       "id": "3783384562",
       "title": "The End Of A Calamity Menu Theme",
-      "subscriptions": 38303,
+      "subscriptions": 38336,
       "previewUrl": "https://images.steamusercontent.com/ugc/13797106183919964355/788FFD69DE9ECDEE985AAFDD5C6B69D5AAC79590/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3783384562"
     },
@@ -269,21 +269,21 @@
     {
       "id": "3825707181",
       "title": "Empress of Night | MEAC Renewed",
-      "subscriptions": 21,
+      "subscriptions": 34,
       "previewUrl": "https://images.steamusercontent.com/ugc/18108726235000849594/5E509458B230AEBF79BB7AEF8D7AD61468E17567/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3825707181"
     },
     {
       "id": "3820442598",
       "title": "Mecha Keys",
-      "subscriptions": 233,
+      "subscriptions": 234,
       "previewUrl": "https://images.steamusercontent.com/ugc/16382141448172799722/957EA10104747C5E106701BBAEC135EACBA61840/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3820442598"
     },
     {
       "id": "3819271557",
       "title": "Vanity Studio",
-      "subscriptions": 448,
+      "subscriptions": 449,
       "previewUrl": "https://images.steamusercontent.com/ugc/14239765793020392236/8DFC4E12B67DAA95718AFF1588BAA961325C6687/",
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3819271557"
     }
@@ -390,5 +390,5 @@
       "hidden": true
     }
   ],
-  "updatedAt": "2026-10-24T10:21:27.139Z"
+  "updatedAt": "2026-10-24T14:15:56.915Z"
 }
