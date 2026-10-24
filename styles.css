@@ -593,6 +593,7 @@ button:focus-visible {
 .card[data-brand="modrinth"] { --accent: #1bd96a; }
 .card[data-brand="curseforge"] { --accent: #f16436; }
 .card[data-brand="nexus"] { --accent: #e8a13a; }
+.card[data-brand="thirdparty"] { --accent: #b48cff; }
 .card[data-brand="discord"] { --accent: #7983f5; }
 .card[data-brand="github"] { --accent: #e6edf3; }
 
@@ -633,6 +634,34 @@ button:focus-visible {
   outline: 2px solid var(--accent, var(--green));
   outline-offset: 2px;
   border-radius: var(--radius);
+}
+
+.card[hidden] {
+  display: none;
+}
+
+/* Five counters: stats in one row of five, Discord + GitHub split 3 / 2 below. */
+.cards--five {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.cards--five .card--discord {
+  grid-column: span 3;
+}
+
+.cards--five #card-github {
+  grid-column: span 2;
+}
+
+.cards--five .count {
+  font-size: clamp(1.25rem, 2.1vw, 1.6rem);
+}
+
+.cards--five .card__count .delta {
+  position: absolute;
+  right: 12px;
+  bottom: 22px;
+  margin: 0;
 }
 
 .card--link {
@@ -1027,6 +1056,7 @@ button:focus-visible {
 .work[data-source="modrinth"] { --accent: #1bd96a; }
 .work[data-source="curseforge"] { --accent: #f16436; }
 .work[data-source="nexus"] { --accent: #e8a13a; }
+.work[data-source="thirdparty"] { --accent: #b48cff; }
 
 .work:hover {
   border-color: color-mix(in srgb, var(--accent) 60%, transparent);
@@ -1951,7 +1981,48 @@ button:focus-visible {
   }
 }
 
+@media (max-width: 1180px) {
+  .cards--five {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .cards--five .card--stat {
+    grid-column: span 2;
+  }
+
+  .cards--five .card--stat:nth-child(n + 4) {
+    grid-column: span 3;
+  }
+
+  .cards--five .card--discord,
+  .cards--five #card-github {
+    grid-column: span 3;
+  }
+
+  .cards--five .count {
+    font-size: 1.6rem;
+  }
+}
+
 @media (max-width: 800px) {
+  .cards--five {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cards--five .card--stat,
+  .cards--five .card--stat:nth-child(n + 4),
+  .cards--five #card-github {
+    grid-column: span 1;
+  }
+
+  .cards--five #card-thirdparty {
+    grid-column: 1 / -1;
+  }
+
+  .cards--five .card--discord {
+    grid-column: 1 / -1;
+  }
+
   .stage {
     grid-template-columns: 1fr;
   }

@@ -7,6 +7,7 @@ const countEls = {
   modrinth: document.querySelector('[data-count="modrinth"]'),
   curseforge: document.querySelector('[data-count="curseforge"]'),
   nexus: document.querySelector('[data-count="nexus"]'),
+  thirdparty: document.querySelector('[data-count="thirdparty"]'),
 };
 
 function format(value) {
@@ -102,6 +103,7 @@ function renderDeltas(stats) {
     modrinth: stats.modrinth?.downloads ?? 0,
     curseforge: stats.curseforge?.downloads ?? 0,
     nexus: stats.nexus?.downloads ?? 0,
+    thirdparty: stats.thirdparty?.downloads ?? 0,
   };
   document.querySelectorAll("[data-delta]").forEach((el) => {
     const key = el.dataset.delta;
@@ -128,7 +130,9 @@ async function loadStats() {
     const modrinth = stats.modrinth?.downloads ?? 0;
     const curseforge = stats.curseforge?.downloads ?? 0;
     const nexus = stats.nexus?.downloads ?? 0;
-    const total = stats.total ?? steam + modrinth + curseforge + nexus;
+    const thirdparty = stats.thirdparty?.downloads ?? 0;
+    const total = stats.total ?? steam + modrinth + curseforge + nexus + thirdparty;
+    setupThirdParty(stats);
 
     totalEl.classList.add("is-live");
     animateCount(totalEl, total);
@@ -136,11 +140,13 @@ async function loadStats() {
     animateCount(countEls.modrinth, modrinth);
     animateCount(countEls.curseforge, curseforge);
     animateCount(countEls.nexus, nexus);
+    if (stats.thirdparty) animateCount(countEls.thirdparty, thirdparty);
 
     labelCard("card-steam", "Steam", steam, "загрузка", "загрузки", "загрузок");
     labelCard("card-modrinth", "Modrinth", modrinth, "загрузка", "загрузки", "загрузок");
     labelCard("card-curseforge", "CurseForge", curseforge, "загрузка", "загрузки", "загрузок");
     labelCard("card-nexus", "Nexus", nexus, "загрузка", "загрузки", "загрузок");
+    labelCard("card-thirdparty", stats.thirdparty?.label || "Third-Party", thirdparty, "загрузка", "загрузки", "загрузок");
 
     if (stats.updatedAt) {
       const when = new Intl.DateTimeFormat("ru-RU", {
@@ -154,7 +160,7 @@ async function loadStats() {
     }
 
     renderDeltas(stats);
-    renderShares({ steam, modrinth, curseforge, nexus }, total);
+    renderShares({ steam, modrinth, curseforge, nexus, thirdparty }, total);
     renderTrend(stats);
     celebrate(stats);
     renderProfile(stats.github);
@@ -272,7 +278,29 @@ const SOURCE_ICONS = {
   modrinth: "svg/modrinth.svg",
   curseforge: "svg/curseforge.svg",
   nexus: "svg/nexus.svg",
+  thirdparty: "svg/thirdparty.svg",
 };
+
+// Fifth counter: mods from other sites listed in data/third-party.json.
+function setupThirdParty(stats) {
+  const card = document.getElementById("card-thirdparty");
+  const info = stats.thirdparty;
+  const items = (stats.projects || []).filter((item) => item?.source === "thirdparty");
+  const note = document.getElementById("sum-note");
+  document.querySelector(".cards")?.classList.toggle("cards--five", Boolean(info));
+  if (!card || !info) return;
+  const label = info.label || "Third-Party";
+  card.querySelector('[data-label="thirdparty"]').textContent = label;
+  const sites = [...new Set(items.map((item) => item.site).filter(Boolean))];
+  card.querySelector('[data-hint="thirdparty"]').textContent = sites.length ? sites.join(", ") : "загрузки модов";
+  if (items.length === 1 && safeHttps(items[0].url)) {
+    card.href = items[0].url;
+    card.target = "_blank";
+    card.rel = "noopener noreferrer";
+  }
+  card.hidden = false;
+  if (note) note.textContent = `В сумме Steam, Modrinth, CurseForge, Nexus Mods и ${sites.length ? sites.join(", ") : label}.`;
+}
 
 function renderWorks(items) {
   const root = document.querySelector("#works");
@@ -327,6 +355,7 @@ function renderWorks(items) {
         badge.className = "work__badge";
         badge.src = icon;
         badge.alt = "";
+        if (item.site) badge.title = item.site;
         link.append(badge);
       }
 

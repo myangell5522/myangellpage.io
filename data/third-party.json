@@ -1,0 +1,13 @@
+{
+  "label": "Third-Party",
+  "mods": [
+    { "url": "https://modworkshop.net/mod/59696" }
+  ],
+  "_help": [
+    "Add one line per mod to \"mods\": { \"url\": \"https://...\" }",
+    "Optional per mod: \"title\" (override the name), \"image\" (preview URL),",
+    "\"pattern\" (regex whose first group is the download count, for unusual sites),",
+    "\"downloads\" (a fixed number, for sites that can't be read automatically).",
+    "\"label\" is the counter's name on the page."
+  ]
+}

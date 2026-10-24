@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=9">
+    <link rel="stylesheet" href="styles.css?v=10">
   </head>
   <body>
     <canvas id="sky" class="sky" aria-hidden="true"></canvas>
@@ -42,7 +42,7 @@
               <span class="live" aria-hidden="true"><i></i>LIVE</span>
               <span id="updated" class="updated" aria-live="polite">Загрузка счётчика…</span>
             </p>
-            <p class="note">В сумме Steam, Modrinth, CurseForge и Nexus Mods.</p>
+            <p class="note"><span id="sum-note">В сумме Steam, Modrinth, CurseForge и Nexus Mods.</span></p>
           </div>
           <div class="trend" id="trend" hidden>
             <div class="trend__head">
@@ -81,6 +81,13 @@
             <span class="card__count"><span class="count" data-count="nexus" aria-label="0">0</span><span class="delta" data-delta="nexus" hidden></span></span>
             <span class="card__hint">загрузки модов</span>
             <span class="share" aria-hidden="true"><span class="share__fill" data-share="nexus"></span></span>
+          </a>
+
+          <a class="card card--stat reveal" id="card-thirdparty" data-brand="thirdparty" href="#works-heading" hidden>
+            <span class="card__top"><img class="icon" src="svg/thirdparty.svg" alt=""><span data-label="thirdparty">Third-Party</span></span>
+            <span class="card__count"><span class="count" data-count="thirdparty" aria-label="0">0</span><span class="delta" data-delta="thirdparty" hidden></span></span>
+            <span class="card__hint" data-hint="thirdparty">загрузки модов</span>
+            <span class="share" aria-hidden="true"><span class="share__fill" data-share="thirdparty"></span></span>
           </a>
 
           <a class="card card--link card--discord reveal" id="card-discord" data-brand="discord" href="https://discord.com/users/844636528406822942" target="_blank" rel="noopener noreferrer">
@@ -232,7 +239,7 @@
 
     <div id="toast" class="toast" role="status" hidden></div>
 
-    <script src="app.js?v=9"></script>
-    <script src="blog.js?v=9"></script>
+    <script src="app.js?v=10"></script>
+    <script src="blog.js?v=10"></script>
   </body>
 </html>
