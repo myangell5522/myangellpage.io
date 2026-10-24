@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=10">
+    <link rel="stylesheet" href="styles.css?v=11">
   </head>
   <body>
     <canvas id="sky" class="sky" aria-hidden="true"></canvas>
@@ -104,6 +104,16 @@
               GitHub
             </span>
             <span class="card__go">Открыть профиль →</span>
+          </a>
+        </section>
+
+        <section class="panel gh-widget reveal" id="gh-widget" aria-labelledby="gh-widget-heading">
+          <div class="panel__head">
+            <h2 id="gh-widget-heading" class="eyebrow">Обзор GitHub</h2>
+            <a class="text-link" href="https://github.com/myangell5522/myangell5522" target="_blank" rel="noopener noreferrer">виджет профиля</a>
+          </div>
+          <a class="gh-widget__frame is-loading" href="https://github.com/myangell5522" target="_blank" rel="noopener noreferrer" aria-label="Профиль myangell5522 на GitHub">
+            <img id="gh-widget-img" alt="GitHub: звёзды, подписчики, репозитории, языки и активность myangell5522" width="900" height="520" decoding="async" hidden>
           </a>
         </section>
 
@@ -239,7 +249,7 @@
 
     <div id="toast" class="toast" role="status" hidden></div>
 
-    <script src="app.js?v=10"></script>
+    <script src="app.js?v=11"></script>
     <script src="blog.js?v=10"></script>
   </body>
 </html>

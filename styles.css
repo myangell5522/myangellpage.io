@@ -997,6 +997,45 @@ button:focus-visible {
   font-size: 12px;
 }
 
+/* ---------- GitHub profile widget ---------- */
+
+.gh-widget[hidden] {
+  display: none;
+}
+
+.gh-widget__frame {
+  position: relative;
+  display: block;
+  margin-top: 14px;
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 900 / 520;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gh-widget__frame:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45), 0 0 34px rgba(57, 211, 83, 0.18);
+}
+
+.gh-widget__frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.gh-widget__frame.is-loading {
+  background:
+    linear-gradient(100deg, transparent 30%, rgba(57, 211, 83, 0.08) 50%, transparent 70%) 0 0 / 200% 100%,
+    linear-gradient(180deg, #0b1411, #07090d);
+  border: 1px solid var(--border);
+  animation: skeleton 1.4s linear infinite;
+}
+
+@keyframes skeleton {
+  to { background-position: -200% 0, 0 0; }
+}
+
 /* ---------- Projects + active ---------- */
 
 .stage {

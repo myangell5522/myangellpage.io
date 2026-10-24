@@ -793,7 +793,46 @@ function setupSky() {
   requestAnimationFrame(draw);
 }
 
+/* ---------- GitHub profile widget (generated in the myangell5522 repo) ---------- */
+
+// The profile repo regenerates this SVG every 30 minutes in the site's palette.
+// raw.githubusercontent serves it as text, so it's fetched and shown through a blob URL.
+const WIDGET_SOURCES = [
+  "https://raw.githubusercontent.com/myangell5522/myangell5522/main/widgets/profile-card-portfolio.svg",
+  "https://cdn.jsdelivr.net/gh/myangell5522/myangell5522@main/widgets/profile-card-portfolio.svg",
+];
+
+async function loadProfileWidget() {
+  const section = document.querySelector("#gh-widget");
+  const img = document.querySelector("#gh-widget-img");
+  if (!section || !img) return;
+  const frame = img.parentElement;
+  const show = (src) =>
+    new Promise((resolve, reject) => {
+      img.onload = resolve;
+      img.onerror = reject;
+      img.src = src;
+    });
+
+  for (const url of WIDGET_SOURCES) {
+    try {
+      const res = await fetch(`${url}?t=${Math.floor(Date.now() / 600000)}`, { cache: "no-cache" });
+      if (!res.ok) continue;
+      const text = await res.text();
+      if (!text.includes("<svg")) continue;
+      await show(URL.createObjectURL(new Blob([text], { type: "image/svg+xml" })));
+      img.hidden = false;
+      frame.classList.remove("is-loading");
+      return;
+    } catch {
+      /* try the next source */
+    }
+  }
+  section.hidden = true;
+}
+
 document.querySelectorAll(".card").forEach((card) => attachTilt(card, 7));
+loadProfileWidget();
 setupReveal();
 setupSky();
 loadStats();
